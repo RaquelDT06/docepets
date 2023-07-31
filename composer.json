@@ -1,0 +1,25 @@
+{
+    "name": "raquelcruz/docepets",
+    "description": "Projeto de conclusão curso técnico",
+    "type": "project",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Raquel Cruz",
+            "email": "raqueldetonicruz@gmail.com"
+        }
+    ],
+    "minimum-stability": "alpha",
+    "require": {
+        "filp/whoops": "^2.15"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Core\\": "core/"
+        },
+        "files": [
+            "helpers/helpers.php"
+        ]
+    }
+}

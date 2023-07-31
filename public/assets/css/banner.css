@@ -1,0 +1,12 @@
+ 
+  .carousel-inner {
+    display: flex;
+    align-items: center;
+    padding: 10rem;
+    position: fixed ;
+    z-index: 0;
+    width: 90%;
+    top: 1rem;
+  }
+  
+  
