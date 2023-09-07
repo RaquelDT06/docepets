@@ -60,3 +60,11 @@ foreign key (usuario_id) references usuario (id_usuario)
 
 INSERT INTO `docepets_php`.`usuario` (`id_usuario`, `nome`, `sobrenome`, `email`, `senha`, `nivel`, `ativo`, `created_at`) VALUES ('1', 'admin', 'admin', 'admin@admin', '21232f297a57a5a743894a0e4a801fc3', '1', '1', '2023-01-01');
 
+
+--liberar login com root
+
+-- for MySQL
+--ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+
+-- for MariaDB
+--ALTER USER 'root'@'localhost' IDENTIFIED VIA mysql_native_password USING PASSWORD('root');
