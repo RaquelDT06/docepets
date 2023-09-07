@@ -1,0 +1,67 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para o formulário de contato */
+.container.contato {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+h6 {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+}
+
+textarea {
+    width: 100%;
+    padding: 8rem;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Estilo para a mensagem de sucesso */
+.swal-title {
+    color: #28a745;
+    font-size: 24px;
+}
+
+.swal-text {
+    color: #333;
+    font-size: 16px;
+}

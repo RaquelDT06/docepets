@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+// namespace App\models\UsuarioModel;
+
 use Core\Model\Model;
 
 use PDO;
@@ -95,7 +97,7 @@ class UsuarioModel extends Model
     }
 
     public function getUsuarioPorEmail(){
-        $query = "select nome, sobrenome, email from usuarios where email = :email";
+        $query = "select nome, sobrenome, email from usuario where email = :email";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":email", $this->__get("email"));
@@ -105,7 +107,7 @@ class UsuarioModel extends Model
     }
 
     public function salvar(){
-        $query = "insert into usuarios(nome, sobrenome, email, senha, nivel) values
+        $query = "insert into usuario(nome, sobrenome, email, senha, nivel) values
                     (:nome, :sobrenome, :email, :senha, :nivel)";
         
         $stmt = $this->db->prepare($query);

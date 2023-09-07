@@ -1,79 +1,52 @@
-<!-- <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	
-	<meta name="theme-name" content="dot" />
-
-	
-
-	
-	<link rel="stylesheet" href="assets/cliente/plugins/bootstrap/bootstrap.min.css">
-	
-	<link rel="stylesheet" href="assets/cliente/plugins/themify-icons/themify-icons.css">
-	
-	<link rel="shortcut icon" href="assets/img/rocket-takeoff-fill.svg" type="image/x-icon" />
-	
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-	
-	<link href="assets/cliente/style.css" rel="stylesheet" media="screen" />
-
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
-
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head> -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<title><?= isset($this->view->title) ? $this->view->title : "DocePets"; ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="public/assets/css/style.css">
+	<link rel="stylesheet" href="public/assets/css/rodape.css">
+	<!-- <link rel="stylesheet" href="assets/cssl/style.css"> -->
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="shortcut icon" href="assets/img/patas.png" type="image/x-icon">
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-	<title><?= isset($this->view->title) ? $this->view->title : "Doce Pets"; ?></title>
 </head>
 
-<body class="p-3 m-0 border-0 bd-example">
-	<header class="cabecalho">
-		<nav class="navbar bg-custom fixed-top">
-			<div class="container-fluid">
-				<img class="logo" width="150" src="assets/img/logo.jfif" alt="logo">
-				<ul class="menu__lista">
-					<li class="menu__item">
-						<a class="menu__link menu--ativo" href="/"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-house-heart" viewBox="0 0 16 16">
-								<path d="M8 6.982C9.664 5.309 13.825 8.236 8 12 2.175 8.236 6.336 5.309 8 6.982Z" />
-								<path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.707L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.646a.5.5 0 0 0 .708-.707L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
-							</svg></a>
+<body class="p-0 m-0 border-0 position-absolute bd-example">
+	<nav class="navbar navbar-expand-lg  bg-light w-100	">
+		<div class="container-fluid">
+			<img class="logo" src="assets/img/logo_1.png" alt="logo" >
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse d-flex justify-content-between " id="navbarSupportedContent">
+				
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item dropdown">
+						<a class="nav-link active" aria-current="page" href="/">Home</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link" href="/contato">Contato</a>
 					</li>
 
-					<li class="menu__item">
-						<a class="menu__link" href="/contato">Contato</a>
+					<li class="nav-item dropdown z-3">
+						<a class="nav-link" href="/agendamento">Agendamento</a>
 					</li>
-
-					<li class="menu__item">
-						<a class="menu__link" href="/quem_somos"><img width="30" src="assets/img/patas.png"> Quem somos</a>
+					<li class="nav-item dropdown z-3">
+						<a class="nav-link" href="/cadastro_pet">Cadastro Pet</a>
 					</li>
-
-					<li class="menu__item">
-						<a class="menu__link" href="/nossas_lojas">Nossas Lojas</a>
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/quem_somos">Quem somos</a>
 					</li>
-					<li class="menu__item">
-						<a class="menu__link" href="/servicos">Serviços pet</a>
-					</li>
-
-					<li class="menu__item--separador"></li>
-
 					<li class="menu__item">
 
 						<!-- Button trigger modal -->
-						<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="menu__link menu--ativo"  href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
+						<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="menu__link menu--ativo" href="/login"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
 									<path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
 								</svg> Entrar</a>
 						</button>
@@ -81,116 +54,95 @@
 
 					</li>
 				</ul>
-				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<form class="d-flex mt-3 w-100" role="search">
-					<input class="form-control me-2 buscar" type="search" placeholder="Para seu animal, pesquise aqui..." aria-label="Search">
-					<button class="btn btn-outline-success" type="submit">Buscar</button>
-				</form>
-				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-					<div class="offcanvas-header">
-						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Categoria</h5>
-						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-					</div>
-					<form class="d-flex mt-3" role="search">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Buscar</button>
-					</form>
-					<div class="offcanvas-body">
-						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="/">Home</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="/contato">Contato</a>
-							</li>
-							<li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-									Agendamentos
-								</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="/servicos">Banho e tosa</a></li>
-									<li><a class="dropdown-item" href="/servicos">Clínica Veterinária</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
+			
 			</div>
-		</nav>
-	</header>
+		</div>
+	</nav>
 
-	<body>
-
-
-		<!-- /header -->
+	<!-- /header -->
 
 		<!-- topics -->
-		<section class="section">
+		<section class="background">
 			<?php $this->content(); ?>
 		</section>
+
 		<!-- /topics -->
+<!-- footer -->
 
+</main>
+	<footer>
+		<div id="footer_content">
+			<div id="footer_contacts">
+				<div id="footer_social_media">
 
+					<a href="https://instagram.com/thaaa_fernanda?igshid=OGQ5ZDc2ODk2ZA==" class="footer-link" id="instagram">
+					<i class="fa-brands fa-instagram"></i>
+					</a>
 
-		<footer class="bd-footer footer">
-			<div class="container-fluid ">
-				<div class="row">
-					<div class="col-lg-3 mb-3">
-						<a class="d-inline-flex align-items-center mb-2" href="_" aria-label="DocePets"><img src="assets/img/logo.jfif" alt=""></a>
+					<a href="https://www.facebook.com/sincerodogs?mibextid=LQQJ4d" class="footer-link" id="facebook">
+					<i class="fa-brands fa-facebook"></i>
+					</a>
 
-					</div>
-					<div class="col-6 col-lg-2 mb-3">
-						<h5>ALL</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"> <a href="#">Home</a></li>
-							<li class="mb-2"> <a href="#">Contato</a></li>
-							<li class="mb-2"><a href="#">Sobre Nos</a></li>
-							<li class="mb-2"><a href="#">Locais</a></li>
-						</ul>
-
-					</div>
-
-					<div class="col-6 col-lg-2 mb-3">
-						<h5>ALL</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"> <a href="#">Home</a></li>
-							<li class="mb-2"> <a href="#">Contato</a></li>
-							<li class="mb-2"><a href="#">Sobre Nos</a></li>
-							<li class="mb-2"><a href="#">Locais</a></li>
-						</ul>
-
-					</div>
-
-					<div class="col-6 col-lg-2 mb-3">
-						<h5>ALL</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"> <a href="#">Home</a></li>
-							<li class="mb-2"> <a href="#">Contato</a></li>
-							<li class="mb-2"><a href="#">Sobre Nos</a></li>
-							<li class="mb-2"><a href="#">Locais</a></li>
-						</ul>
-
-					</div>
-
-					<div class="col-6 col-lg-2 mb-3">
-						<h5>ALL</h5>
-						<ul class="list-unstyled">
-							<li class="mb-2"> <a href="#">Home</a></li>
-							<li class="mb-2"> <a href="#">Contato</a></li>
-							<li class="mb-2"><a href="#">Sobre Nos</a></li>
-							<li class="mb-2"><a href="#">Locais</a></li>
-						</ul>
-
-					</div>
-
+					<a href="https://wa.me/5565984657689?text=Ol%C3%A1%2C+tudo+bem%3F+Ficamos+muito+felizes+com+o+seu+contato%21+Como+a+DocePets+pode+te+ajudar+hoje%3F" class="footer-link" id="whatsapp">
+					<i class="fa-brands fa-whatsapp"></i>
+					</a>
 				</div>
 			</div>
-		</footer>
 
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+		<ul class="footer-list">
+			<li>
+				<h3>Serviços</h3>
+			</li>
+			<li>
+				<a href="/servicos" class="footer-link">Veterinária e estética</a>
+			</li>
+			<li>
+				<a href="/servicos" class="footer-link">Banho e tosa</a>
+			</li>
+			<li>
+				<a href="/servicos" class="footer-link">Consultas</a>
+			</li>
+		</ul>
 
-	</body>
+		<ul class="footer-list">
+			<li>
+				<h3>Dúvidas</h3>
+			</li>
+
+			<li>
+				<a href="/login" class="footer-link">DocePets@gmail.com</a>
+			</li>
+			<li>
+				<a href="#" class="footer-link">3685-7624</a>
+			</li>
+			<li>
+				<a href="#" class="footer-link">Política de privacidade</a>
+			</li>
+		</ul>
+	
+			
+		<div id="footer_subscribe">
+			<h3>Descrição</h3>
+
+			<p>
+                    A relação de amor e cumplicidade que temos com nossos bichinhos
+                    de estimação é um vínculo único! 
+                </p>
+			<div id="input_group">
+				<input type="email" id="email">
+				<button>
+				<i class="fa-regular fa-envelope"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div id="footer_copyright">
+		Copyright © 2023 - Docepets
+	</div>
+
+	</footer>
+
+</body>
 
 </html>

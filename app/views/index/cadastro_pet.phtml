@@ -1,0 +1,220 @@
+<div class="container-fluid px-4">
+    <?php
+    // dd($this->view->status);
+    if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
+    ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>MENSAGEM: </strong> <?= $this->view->status['msg'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    }
+    ?>
+
+    <?php
+    // dd($this->view->status);
+    if (isset($this->view->status) && $this->view->status['status'] == "SUCCESS") {
+    ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>MENSAGEM: </strong> <?= $this->view->status['msg'] ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php
+    }
+    ?>
+
+    <h1 class="section-title text-success">Perfil do Pet</h1>
+    <br>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Preencha o formulário com os dados do pet abaixo e clique em cadastrar</li>
+    </ol>
+
+    <form action="/banho-tosa">
+        <h6>Adicionar Foto</h6>
+        <input type="file" accept="image/*" class="form-control mb-4 shadow rounded-0">
+        <br>
+        <h6>Nome do pet</h6>
+        <input type="text" id="name" name="name" placeholder="Nome do pet" class="form-control mb-4 shadow rounded-0">
+        <label>Data Nascimento Pet</label>
+        <input type="date" id="Nascimento" name="Nascimento" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
+
+        <label>Raça do Pet</label>
+        <select id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
+            <option value="">Selecione a raça do seu Pet</option>
+            <option value="5dc080366c607b525b9bc183">Afghan Hound</option>
+            <option value="62b47a3b88aa03001bf7ecae">Airedale Terrier</option>
+            <option value="5ddfcb58237e6f3cdfe459bf">Akita Americano</option>
+            <option value="5dc0803c6c607b525b9bc184">Akita Inu</option>
+            <option value="62b4795888aa03001bf7e941">American Bully</option>
+            <option value="5dc07f736c607b525b9bc16d">American StaffordShire Terrier</option>
+            <option value="62b4788f88aa03001bf7e5fc">American Tenerife</option>
+            <option value="62b4789988aa03001bf7e620">Australian Silky Terrier</option>
+            <option value="5dc07e2a6c607b525b9bc14b">Basenji</option>
+            <option value="5dc07e326c607b525b9bc14c">Basset Hound</option>
+            <option value="5dc07e396c607b525b9bc14d">Beagle</option>
+            <option value="62b478a488aa03001bf7e654">Bedlington</option>
+            <option value="5dc081256c607b525b9bc19e">Bernese Mountain</option>
+            <option value="5dc07db36c607b525b9bc13d">Bichon Frisé</option>
+            <option value="5e50418de40194001c529e14">Biewer Terrier</option>
+            <option value="61e6fe8cc8857d001b4e58a4">Bloodhound</option>
+            <option value="5dc07f7f6c607b525b9bc16e">Blue Heeler Boiadeiro Australiano</option>
+            <option value="5dc081306c607b525b9bc19f">Boiadeiro Bernês</option>
+            <option value="62b47a4488aa03001bf7ecdb">Boiadeiro de Entlebuch</option>
+            <option value="5dc07f886c607b525b9bc16f">Border Collie</option>
+            <option value="5dc081376c607b525b9bc1a0">Borzoi</option>
+            <option value="5dc07e3f6c607b525b9bc14e">Boston Terrier</option>
+            <option value="5dc080436c607b525b9bc185">Bouvier de Flandes</option>
+            <option value="5dc080496c607b525b9bc186">Boxer</option>
+            <option value="5dc07f8f6c607b525b9bc170">Bull Terrier</option>
+            <option value="5dc080506c607b525b9bc187">Bulldog Americano</option>
+            <option value="5dc07f966c607b525b9bc171">Bulldog Campeiro</option>
+            <option value="5dc07e466c607b525b9bc14f">Bulldog Francês</option>
+            <option value="5dc07e4e6c607b525b9bc150">Bulldog Inglês</option>
+            <option value="5dc080566c607b525b9bc188">Bullmastiff</option>
+            <option value="5e7695a7e38a3f001b834d9a">Cairn Terrier</option>
+            <option value="5dc0805d6c607b525b9bc189">Cane Corso</option>
+            <option value="5dc07e646c607b525b9bc153">Cavalier</option>
+            <option value="5dc07dbb6c607b525b9bc13e">Chihuahua</option>
+            <option value="5dc07f9f6c607b525b9bc172">Chow Chow</option>
+            <option value="62b47a4d88aa03001bf7ecf8">Cimarron Uruguayo</option>
+            <option value="5e76268fe38a3f001b834d3c">Clumber Spaniel</option>
+            <option value="5dc07e6b6c607b525b9bc154">Cocker Americano</option>
+            <option value="5dc07e736c607b525b9bc155">Cocker Spaniel Inglês</option>
+            <option value="5dc080786c607b525b9bc18d">Collie</option>
+            <option value="5e1c562b5d0f560011af2aaa">Collie Barbudo</option>
+            <option value="5dc07e7b6c607b525b9bc156">Coton de Tulear</option>
+            <option value="5dc080646c607b525b9bc18a">Cão Dágua Espanhol</option>
+            <option value="5dc0806b6c607b525b9bc18b">Cão Dágua Irlandes</option>
+            <option value="5dc080726c607b525b9bc18c">Cão Dágua Português</option>
+            <option value="5dc07e5c6c607b525b9bc152">Cão de Crista Chinês</option>
+            <option value="5dc0813f6c607b525b9bc1a1">Cão de Montanha dos Pireneus</option>
+            <option value="5dc07dc36c607b525b9bc13f">Dachshund</option>
+            <option value="5dd84b58a645eb8c25efa7b6">Dandie Dimmont Terrier</option>
+            <option value="5dc080806c607b525b9bc18e">Dobermann</option>
+            <option value="5dc080876c607b525b9bc18f">Dogo Argentino</option>
+            <option value="5dc081496c607b525b9bc1a2">Dogue Alemão</option>
+            <option value="5dc0808e6c607b525b9bc190">Dogue de Bourdeaux</option>
+            <option value="5dc07fae6c607b525b9bc174">Dálmata</option>
+            <option value="5dc081516c607b525b9bc1a3">Fila Brasileiro</option>
+            <option value="5e3b32a15d0f560011af3d62">Flat Coated Retrivier</option>
+            <option value="5dc07e896c607b525b9bc158">Fox Paulistinha</option>
+            <option value="5dc07e926c607b525b9bc159">Fox Terrier</option>
+            <option value="5dc081596c607b525b9bc1a4">Galgo Irlandês</option>
+            <option value="5dc07ea26c607b525b9bc15b">Galgo Italiano</option>
+            <option value="5dc080956c607b525b9bc191">Golden Retriever</option>
+            <option value="62b4795e88aa03001bf7e966">Greyhound</option>
+            <option value="5dc07eaa6c607b525b9bc15c">Griffon de Bruxelas</option>
+            <option value="5dc07fb56c607b525b9bc175">Husky Siberiano</option>
+            <option value="62b4689a88aa03001bf7a009">Italian Greyhond</option>
+            <option value="5dc07eb26c607b525b9bc15d">Jack Russel Terrier</option>
+            <option value="62b478ae88aa03001bf7e694">Japanese Chin</option>
+            <option value="62b478bc88aa03001bf7e6d1">Kerry Blue Terrier</option>
+            <option value="5dc081606c607b525b9bc1a5">Komondor</option>
+            <option value="5dc081676c607b525b9bc1a6">Kuvasz</option>
+            <option value="62b47a5f88aa03001bf7ed4b">Labradoodle</option>
+            <option value="5dc07fbd6c607b525b9bc176">Labrador Retriever</option>
+            <option value="5e1c53f95d0f560011af2aa9">Lhasa Apso</option>
+            <option value="5dc07dd16c607b525b9bc141">Lulu da Pomerânia</option>
+            <option value="62b47ea288aa03001bf7fe9c">Lulu da Pomerânia +5kg</option>
+            <option value="62b47e9788aa03001bf7fe6e">Lulu da Pomerânia até 5kg</option>
+            <option value="5dc0809c6c607b525b9bc192">Malamute</option>
+            <option value="5dc07dd86c607b525b9bc142">Maltês</option>
+            <option value="62b47ec488aa03001bf7ff3c">Maltês +5kg</option>
+            <option value="62b47eb888aa03001bf7fef6">Maltês até 5kg</option>
+            <option value="5dc0816f6c607b525b9bc1a7">Mastife</option>
+            <option value="5dc081766c607b525b9bc1a8">Mastim Napolitano</option>
+            <option value="62b4762d88aa03001bf7dba0">Norfolk</option>
+            <option value="62b4793b88aa03001bf7e8d7">Norwich Terrier</option>
+            <option value="5dc07de06c607b525b9bc143">Papillon</option>
+            <option value="5dc080a36c607b525b9bc193">Pastor Alemão</option>
+            <option value="5dc07fc46c607b525b9bc177">Pastor Australiano</option>
+            <option value="5dc080aa6c607b525b9bc194">Pastor Belga</option>
+            <option value="62b47fba88aa03001bf8037d">Pastor Branco</option>
+            <option value="5dc080b76c607b525b9bc195">Pastor Branco Suíço</option>
+            <option value="62b47a6b88aa03001bf7ed89">Pastor Maremano</option>
+            <option value="5dd84b7ea645eb8c25efa7b7">Pastor Polonês</option>
+            <option value="62b47a6588aa03001bf7ed74">Pastor de Brie</option>
+            <option value="5dc07eba6c607b525b9bc15e">Pastor de Shetland</option>
+            <option value="5dc07de76c607b525b9bc144">Pequinês</option>
+            <option value="62b4a4b788aa03001bf8adb4">Pil</option>
+            <option value="5dc07def6c607b525b9bc145">Pinscher</option>
+            <option value="62b4794688aa03001bf7e903">Pinscher Alemão</option>
+            <option value="5dc07fcb6c607b525b9bc178">Pitbull</option>
+            <option value="5dc080be6c607b525b9bc196">Pointer</option>
+            <option value="62b4796988aa03001bf7e999">Pomsky</option>
+            <option value="5e83c89d8a3e6b001b08d8dd">Poodle Gigante</option>
+            <option value="62b47edd88aa03001bf7ffbe">Poodle Grande (40-50cm)</option>
+            <option value="5dc07df66c607b525b9bc146">Poodle Mini Toy</option>
+            <option value="5dc07ec16c607b525b9bc15f">Poodle Médio</option>
+            <option value="5dc07ec96c607b525b9bc160">Pug</option>
+            <option value="5dc07fda6c607b525b9bc17a">Puli</option>
+            <option value="5dc07fe16c607b525b9bc17b">Red Heeler Boiadeiro Australiano</option>
+            <option value="5dc080c66c607b525b9bc197">Rhodesian Ridgeback</option>
+            <option value="5dc080ce6c607b525b9bc198">Rottweiler</option>
+            <option value="5dc0817e6c607b525b9bc1a9">Saluki</option>
+            <option value="5dc07fe96c607b525b9bc17c">Samoieda</option>
+            <option value="5dc07ed16c607b525b9bc161">Schipperke</option>
+            <option value="5dc0818d6c607b525b9bc1ab">Schnauzer Gigante</option>
+            <option value="5dc07dfd6c607b525b9bc147">Schnauzer Mini Toy</option>
+            <option value="5dc07ff06c607b525b9bc17d">Schnauzer Médio</option>
+            <option value="5dc07e066c607b525b9bc148">Scottish Terrie</option>
+            <option value="5dc07f196c607b525b9bc169">Sem Raça Definida (35 a 45cm)</option>
+            <option value="5dc0800d6c607b525b9bc181">Sem Raça Definida (45 a 50cm)</option>
+            <option value="5dc080f06c607b525b9bc19c">Sem Raça Definida (50 a 60cm)</option>
+            <option value="5ddbbe86a645eb8c25efa7b8">Sem Raça Definida (até 35cm)</option>
+            <option value="62b47f7f88aa03001bf802a9">Sem raça acima 70 cm</option>
+            <option value="62b47f6088aa03001bf8021b">Sem raça definida 60 - 70cm</option>
+            <option value="62b4796f88aa03001bf7e9c1">Setter Gordon</option>
+            <option value="5dc080d96c607b525b9bc199">Setter Inglês</option>
+            <option value="5dc080e16c607b525b9bc19a">Setter Irlandês</option>
+            <option value="5dc07ff86c607b525b9bc17e">Shar Pei</option>
+            <option value="5dc080e96c607b525b9bc19b">Sheepdog</option>
+            <option value="5dc07ed96c607b525b9bc162">Shiba</option>
+            <option value="5dc07ee16c607b525b9bc163">Shih Tzu</option>
+            <option value="5dc07ee96c607b525b9bc164">Skye Terrier</option>
+            <option value="612e2f73b483cf001bac2562">Spaniel Bretao</option>
+            <option value="62b47f0a88aa03001bf8006d">Spitz +5kg</option>
+            <option value="5dc07ef76c607b525b9bc165">Spitz Alemão</option>
+            <option value="5dc07f016c607b525b9bc166">Spitz Japonês</option>
+            <option value="62b47ef088aa03001bf7ffff">Spitz até 5kg</option>
+            <option value="5dc080006c607b525b9bc17f">Spitz da Lapônia</option>
+            <option value="5dc080066c607b525b9bc180">Spring Spaniel Inglês</option>
+            <option value="62b47fa488aa03001bf80327">Staffordshire</option>
+            <option value="5dc081856c607b525b9bc1aa">São Bernardo</option>
+            <option value="62b4766688aa03001bf7dcd6">Teckel Pelo Curto</option>
+            <option value="62b4768988aa03001bf7dd74">Teckel Pelo Longo</option>
+            <option value="62b4a4cc88aa03001bf8ae0c">Tenerife</option>
+            <option value="5dc07f096c607b525b9bc167">Tenerife Bichon Frise</option>
+            <option value="5dc081966c607b525b9bc1ac">Terra Nova</option>
+            <option value="5dc07f106c607b525b9bc168">Terrier Escocês</option>
+            <option value="5dd2c543847fbb92308a0d92">Terrier Toy</option>
+            <option value="5dc080146c607b525b9bc182">Vizsla</option>
+            <option value="5dc080f96c607b525b9bc19d">Weimaraner</option>
+            <option value="5dc07f206c607b525b9bc16a">Welsh Corgi Cardigan</option>
+            <option value="5fb273f751bb99001ca6b02d">Welsh Corgi Pembroke</option>
+            <option value="62b47fae88aa03001bf8034c">Welsh Terrier</option>
+            <option value="5dc07e0e6c607b525b9bc149">West White Terrier</option>
+            <option value="5dc07f396c607b525b9bc16c">Whippet</option>
+            <option value="62b47f1b88aa03001bf800cf">Whippet Pequeno</option>
+            <option value="62b47f2888aa03001bf8011d">Whippet médio</option>
+            <option value="62b47a7288aa03001bf7ed9d">Wolfhound</option>
+            <option value="5ff52531900235001be4483a">Xoloitzcuintle</option>
+            <option value="62b4797788aa03001bf7e9df">Yakutian Laika</option>
+            <option value="62b4a4da88aa03001bf8ae4a">York biewer</option>
+            <option value="5dc07e166c607b525b9bc14a">Yorkshire Terrier</option>
+        </select>
+        <label>Peso do Pet</label>
+        <input type="number" id="" name="Peso" class="form-control mb-4 shadow rounded-0" value="1">
+        <label>Sexo do Pet</label> <br>
+
+        <label for="radio-gender1" class="radio__Label">Fêmea</label>
+        <input type="radio" id="radio-gender1" data-test="radio-pet-female" class="radio__RadioInput" value="FEMALE">
+        <label for="radio-gender2" class="radio__Label">Macho</label>
+        <input type="radio" id="radio-gender2" data-test="radio-pet-male" class="radio__RadioInput" value="MALE">
+        <input type="text" id="subject" name="subject" placeholder="Informações extras" class="form-control mb-4 shadow rounded-0">
+        <div class="col-12 col-md-6 mb-3">
+            <input class="btn btn-success" type="submit" value="Cadastrar" />
+        </div>
+    </form>
+</div>
+</div>

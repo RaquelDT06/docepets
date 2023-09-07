@@ -1,6 +1,6 @@
 
 .menu__link {
-    color: rgb(80, 65, 65);
+    color: rgb(148, 3, 3);
     text-decoration: none;
     text-transform: lowercase;
     margin-right: 1.25rem;
@@ -9,10 +9,10 @@
 
 .menu__link:hover {
     text-decoration: underline;
-    color: rgb(107, 101, 101);
+    color: #014034;
 }
 
 .menu--ativo {
-    color:  rgb(80, 65, 65);
+    color:  rgb(7, 19, 18);
     font-weight: bold;
 }

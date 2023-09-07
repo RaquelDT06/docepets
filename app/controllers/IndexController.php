@@ -29,10 +29,16 @@ class IndexController extends Action
  
     }
 
-    public function nossas_lojas()
+    public function agendamento()
     {
         
-        $this->render("nossas_lojas","template_normal");
+        $this->render("agendamento","template_normal");
+ 
+    }
+    public function cadastro_pet()
+    {
+        
+        $this->render("cadastro_pet","template_normal");
  
     }
 

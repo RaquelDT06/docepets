@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\controllers;
 
 //os recursos do miniframework
@@ -12,6 +11,7 @@ class AuthController extends Action
 	public function autenticar()
 	{
 		$usuario = Container::getModel('Usuario');
+		// $usuario->__set('email', $_POST['email']);
 		$usuario->__set('email', $_POST['email']);
 		$usuario->__set('senha', md5($_POST['senha']));
 		$usuario->autenticar();
