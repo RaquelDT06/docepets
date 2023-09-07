@@ -7,11 +7,11 @@
     class Connection{
 
         public static function getDb(){
-            #informaões do banco
+            #informações do banco
             $host           =   "localhost";
             $user           =   "root";
             $pass           =   "root";
-            $db_name        =   "docepets";
+            $db_name        =   "docepets_php";
             $db_driver      =   "mysql";
             $charset        =   "utf8";
             $port           =   3307;
@@ -32,7 +32,7 @@
 
                 return $conn;
             // } catch (PDOException $error) {
-            //     // Vamos trata o erro caso exista em outro momento
+            //     // Vamos tratar o erro caso exista em outro momento
             //     // por exemplo podemos enviar um email para o adm caso
             //     // um erro aconteça na conexão
             //     die("Erro de Conexão: ". $error->getMessage());
