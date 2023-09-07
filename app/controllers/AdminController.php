@@ -15,9 +15,7 @@ class AdminController extends Action
         AuthController::validaAutenticacao();
         $this->render("index", "template_admin");
     }
-
-    
-    
+   
 }
 
 ?>

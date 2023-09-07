@@ -14,8 +14,9 @@
             $routes['home'] =  array('route'=>'/','controller'=>'IndexController','action'=>'index');
             $routes['contato'] =  array('route'=>'/contato','controller'=>'IndexController','action'=>'contato');
             $routes['login'] = array('route'=>'/login', 'controller' => 'IndexController', 'action' => 'login');
-            $routes['nossas_lojas'] = array('route'=>'/nossas_lojas', 'controller' => 'IndexController', 'action' => 'nossas_lojas');
-
+            $routes['quem_somos'] = array('route'=>'/quem_somos', 'controller' => 'IndexController', 'action' => 'quem_somos');
+            $routes['agendamento'] = array('route'=>'/agendamento', 'controller' => 'IndexController', 'action' => 'agendamento');
+            $routes['cadastro_pet'] = array('route'=>'/cadastro_pet', 'controller' => 'IndexController', 'action' => 'cadastro_pet');
             //rotas do ErrorController
 
             //rotas do AuthController

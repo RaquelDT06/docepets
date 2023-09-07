@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\model;
+namespace Core\Model;
 use PDO;
 
  abstract class Model{
