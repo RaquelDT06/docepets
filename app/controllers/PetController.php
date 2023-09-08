@@ -20,7 +20,7 @@ class PetController extends Action
     public function salvar_pet()
     {
 
-        // dd($_POST);
+        dd($_POST);
 
         //istancia
         $pet = Container::getModel("Pet");
@@ -31,7 +31,7 @@ class PetController extends Action
         $pet->__set('genero', $_POST['genero']);
         $pet->__set('tipo_id', $_POST['tipo_id']);
         $pet->__set('raca_id', $_POST['raca_id']);
-      
+        $pet->__set("usuario_id", $_POST['usuario_id']);      
 
         //valida campos
 
@@ -59,7 +59,7 @@ class PetController extends Action
                     'genero', $_POST['genero'],
                     'tipo_id', $_POST['tipo_id'],
                     'raca_id', $_POST["raca_id"],
-
+                    'usuario_id', $_POST["usuario_id"]
                 ); 
 
                 $this->render("cadastrar", "template_admin");

@@ -30,19 +30,23 @@
     </ol>
 
     <form action="/salvar_pet" method="POST" enctype="multipart/form-data">
-
-        
-
-    <form action="/salvar_pet">
         <br>
         <h6>Nome do pet</h6>
         <input type="text" id="name" name="name" placeholder="Nome do pet" class="form-control mb-4 shadow rounded-0">
         <label>Data Nascimento Pet</label>
-        <input type="date" id="Nascimento" name="Nascimento" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0"> 
+        <input type="date" id="Nascimento" name="Nascimento" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
 
+        <label for="tipo_pet">Tipo Pet:</label>
+        <select id="tipo_pet" name="tipo_pet" required class="form-control mb-4 shadow rounded-0">
+            <option value="">Seu animal é um ...</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+            <option value="outro">Outros</option>
+        </select>
+        <br>
         <label>Raça do Pet</label>
         <select id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
-            <option value="">Selecione a raça do seu Pet</option>
+            <option value="">Raça do seu Pet</option>
             <option value="5dc080366c607b525b9bc183">Afghan Hound</option>
             <option value="62b47a3b88aa03001bf7ecae">Airedale Terrier</option>
             <option value="5ddfcb58237e6f3cdfe459bf">Akita Americano</option>
@@ -207,12 +211,13 @@
         </select>
         <!-- <label>Peso do Pet</label>
         <input type="number" id="" name="Peso" class="form-control mb-4 shadow rounded-0" value="1"> -->
-        <label>Sexo do Pet</label> <br>
-
+        <label>Sexo do Pet:   </label><br>
         <label for="radio-gender1" class="radio__Label">Fêmea</label>
         <input type="radio" id="radio-gender1" data-test="radio-pet-female" class="radio__RadioInput" value="FEMALE">
         <label for="radio-gender2" class="radio__Label">Macho</label>
         <input type="radio" id="radio-gender2" data-test="radio-pet-male" class="radio__RadioInput" value="MALE">
+        <br><br>
+        <label>Para mais atenção com o seu pet</label> <br>
         <input type="text" id="subject" name="subject" placeholder="Informações extras" class="form-control mb-4 shadow rounded-0">
         <div class="col-12 col-md-6 mb-3">
             <input class="btn btn-success" type="submit" value="Cadastrar" />

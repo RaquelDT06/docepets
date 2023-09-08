@@ -15,7 +15,7 @@ class AgendaModel extends Model
     private $horario;
     private $usuario_id;
     private $pet_id;
-   
+
 
     public function __get($atributo)
     {
@@ -27,70 +27,55 @@ class AgendaModel extends Model
         $this->$atributo = $valor;
     }
 
-    public function autenticar(){
+    public function autenticar()
+    {
 
 
         $query = "SELECT id_agendamento, nasc_data, animal_tipo, data_agend,horario,usuario_id, pet_id FROM agendamentos 
         WHERE email = :email and senha = :senha and ativo = 1";
 
-    
+
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":email", $this->__get("email"));
         $stmt->bindValue(":senha", $this->__get("senha"));
         $stmt->execute();
-        
-     
 
-        if($stmt->rowCount()){
+
+
+        if ($stmt->rowCount()) {
             $agendamento = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            
-            if($agendamento['id_agendamento'] != '' && $agendamento['nome']){
+
+            if ($agendamento['id_agendamento'] != '' && $agendamento['nomepet']) {
                 $this->__set('id_agendamento', $agendamento['id_agendamento']);
                 $this->__set('nasc_data', $agendamento['nasc_data']);
                 $this->__set('animal_tipo', $agendamento['animal_tipo']);
                 $this->__set('data_agend', $agendamento['data_agend']);
                 $this->__set('horario', $agendamento['horario']);
-               
             }
 
             return $this;
         }
 
-    
-        
+
+
         return $this;
-        
-        
     }
 
-    public function validarCadastro(){
+    public function validarCadastro()
+    {
         $valido = true;
 
-        if(strlen($this->__get("nome")) < 3){
+        if (strlen($this->__get("nome")) < 3) {
             $valido = false;
             echo "Nome menor que 3";
-        }
-
-        if(strlen($this->__get("sobrenome")) < 3){
-            $valido = false;
-            echo "sobrenome menor que 3";
-        }
-
-        if(strlen($this->__get("email")) < 3){
-            $valido = false;
-            echo "email menor que 3";
-        }
-
-        if(strlen($this->__get("senha")) < 3){
-            $valido = false;
-            echo "senha menor que 3";
         }
 
         return $valido;
     }
 
-    public function getUsuarioPorEmail(){
+    public function getUsuarioPorEmail()
+    {
         $query = "SELECT nome, sobrenome, email FROM usuario WHERE email = :email";
 
         $stmt = $this->db->prepare($query);
@@ -100,20 +85,21 @@ class AgendaModel extends Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function salvar(){
-        $query = "INSERT INTO usuario(nome, sobrenome, email, senha, nivel) VALUES
-                    (:nome, :sobrenome, :email, :senha, :nivel)";
-        
+    public function salvar()
+    {
+
+        $query = "INSERT INTO agendamentos(nasc_data, animal_tipo, data_agend, horario, pet_id) VALUES
+                    (:nasc_data, :animal_tipo, :data_agend, :horario, :pet_id)";
+
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":nome", $this->__get("nome"));
-        $stmt->bindValue(":sobrenome", $this->__get("sobrenome"));
-        $stmt->bindValue(":email", $this->__get("email"));
-        $stmt->bindValue(":senha", $this->__get("senha"));
-        $stmt->bindValue(":nivel", $this->__get("nivel"));
-        
+        $stmt->bindValue(":nasc_data", $this->__get("nasc_data"));
+        $stmt->bindValue(":animal_tipo", $this->__get("animal_tipo"));
+        $stmt->bindValue(":data_agend", $this->__get("data_agend"));
+        $stmt->bindValue(":horario", $this->__get("horario"));
+        $stmt->bindValue(":pet_id", $this->__get("pet_id"));
+
         $stmt->execute();
 
         return $this;
     }
-
 }

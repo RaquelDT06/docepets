@@ -32,6 +32,7 @@
             $routes['usuario_novo'] =  array('route'=>'/usuario_novo','controller'=>'UsuarioController','action'=>'cadastrar');
 
             $routes['salvar_usuario'] =  array('route'=>'/salvar_usuario','controller'=>'UsuarioController','action'=>'salvar_usuario');
+            $routes['salvar_pet'] =  array('route'=>'/salvar_pet','controller'=>'PetController','action'=>'salvar_pet');
             
 
             $this->setRoutes($routes);
