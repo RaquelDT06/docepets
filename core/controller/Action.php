@@ -2,6 +2,7 @@
 
 namespace Core\controller;
 use stdClass;
+
 abstract class Action {
     
     protected $view;

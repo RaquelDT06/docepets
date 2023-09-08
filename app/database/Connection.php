@@ -20,7 +20,7 @@
             $nome_sistema   =   "";
             $email          =   "";
 
-            // try {
+             try {
                 $conn = new PDO (
                     $db_driver .
                     ":host=" .$host .
@@ -31,12 +31,10 @@
                     $pass);
 
                 return $conn;
-            // } catch (PDOException $error) {
-            //     // Vamos tratar o erro caso exista em outro momento
-            //     // por exemplo podemos enviar um email para o adm caso
-            //     // um erro aconteça na conexão
-            //     die("Erro de Conexão: ". $error->getMessage());
-            // }
+            } catch (PDOException $error) {
+                
+                die("Erro de Conexão: ". $error->getMessage());
+            }
         }
     }
 

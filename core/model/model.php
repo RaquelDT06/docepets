@@ -10,6 +10,12 @@ use PDO;
         {
             $this->db = $db;
         }
+
+        public function json($array){
+            header('Content-Type: aplication/json');
+            echo json_encode($array);
+            exit;
+        }
 }
 
 ?>
