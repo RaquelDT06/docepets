@@ -41,8 +41,8 @@ email varchar(100) not null,
 senha varchar (255) not null,
 nivel tinyint not null default 1,
 ativo tinyint not null default 1,
-delect_at datetime ,
-updated_at datetime,
+delect_at datetime default null,
+updated_at datetime default null,
 created_at datetime not null
 );
 
@@ -68,6 +68,9 @@ ALTER TABLE docepets_php.agendamentos ADD pet_id INT NOT NULL;
 ALTER TABLE docepets_php.agendamentos ADD CONSTRAINT agendamentos_FK FOREIGN KEY (pet_id) REFERENCES docepets_php.cadastro_pet(id_pet_cad) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE docepets_php.cadastro_pet ADD nomepet varchar(100) NOT NULL;
+
+ALTER TABLE docepets_php.usuario MODIFY COLUMN created_at datetime DEFAULT NOW() NOT NULL;
+
 
 --liberar login com root
 
