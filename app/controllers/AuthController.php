@@ -53,6 +53,15 @@ class AuthController extends Action
     	return $_SESSION['id_usuario'];
 	}
 
+	public static function is_admin()
+	{
+		if (session_status() !== PHP_SESSION_ACTIVE) {
+			session_start();
+		}
+
+    	return $_SESSION['nivel'] == 1;
+	}
+	
 	public static function esta_logado()
 	{
 		if (session_status() !== PHP_SESSION_ACTIVE) {
