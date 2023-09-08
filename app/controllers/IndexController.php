@@ -32,13 +32,13 @@ class IndexController extends Action
     public function agendamento()
     {
         
-        $this->render("agendamento","template_normal");
+        $this->render("agendamento","template_admin");
  
     }
     public function cadastro_pet()
     {
         
-        $this->render("cadastro_pet","template_normal");
+        $this->render("cadastro_pet","template_admin");
  
     }
 

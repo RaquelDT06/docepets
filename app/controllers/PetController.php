@@ -23,21 +23,22 @@ class PetController extends Action
         // dd($_POST);
 
         //istancia
-        $agendamentos = Container::getModel("Agendamento");
+        $pet = Container::getModel("Pet");
 
         //recebe dados
-        $agendamentos->__set('nomePet', $_POST['nomePet']);
-        $agendamentos->__set('nasc_data', $_POST['nasc_data']);
-        $agendamentos->__set('animal_tipo', $_POST['animal_tipo']);
-        $agendamentos->__set('data_agend', $_POST['data_agend']);
-        $agendamentos->__set('horario', $_POST["horario"]);
+        $pet->__set('nomepet', $_POST["nomepet"]);
+        $pet->__set('nasc_data', $_POST['nasc_data']);
+        $pet->__set('genero', $_POST['genero']);
+        $pet->__set('tipo_id', $_POST['tipo_id']);
+        $pet->__set('raca_id', $_POST['raca_id']);
+      
 
         //valida campos
 
-        if ($agendamentos->validarCadastro()) {
-            if (count($agendamentos->getAgendamento()) == 0) {
+        if ($pet->validarCadastro()) {
+            if (count($pet->getPet()) == 0) {
 
-                $agendamentos->salvar();
+                $pet->salvar();
 
                 $this->view->status = array(
                     "status" => "SUCCESS",
@@ -52,12 +53,12 @@ class PetController extends Action
                 );
 
                 // salvar e permanecer dados
-                $this->view->temagendamento = array(
+                $this->view->tempet = array(
                     'nomePet', $_POST['nomePet'],
                     'nasc_data', $_POST['nasc_data'],
-                    'animal_tipo', $_POST['animal_tipo'],
-                    'data_agend', $_POST['data_agend'],
-                    'horario', $_POST["horario"],
+                    'genero', $_POST['genero'],
+                    'tipo_id', $_POST['tipo_id'],
+                    'raca_id', $_POST["raca_id"],
 
                 ); 
 

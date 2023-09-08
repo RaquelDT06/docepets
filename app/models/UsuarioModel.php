@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-// namespace App\models\UsuarioModel;
-
 use Core\Model\Model;
 
 use PDO;

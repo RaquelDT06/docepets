@@ -33,6 +33,7 @@ class UsuarioController extends Action
         $usuario->__set('nivel', isset($_POST["nivel"]) ? 1 : 0);
 
         //valida campos
+        // dd($_POST);
 
         if ($usuario->validarCadastro()) {
             if (count($usuario->getUsuarioporEmail()) == 0) {
@@ -44,7 +45,6 @@ class UsuarioController extends Action
                     "msg" => "Cadastro realizado com sucesso"
                 );
                 $this->render("cadastrar", "template_admin");
-                
             } else {
                 $this->view->status = array(
                     "status" => "ERROR",
@@ -57,7 +57,7 @@ class UsuarioController extends Action
                     "sobrenome" => $_POST['sobrenome'],
                     "email" => $_POST['email'],
                     "senha" => $_POST['senha'],
-                    "nivel"=> isset($_POST['nivel']) ? 1 : 0
+                    "nivel" => isset($_POST['nivel']) ? 1 : 0
 
                 );
                 $this->render("cadastrar", "template_admin");

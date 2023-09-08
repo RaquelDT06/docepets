@@ -72,16 +72,17 @@ class PetModel extends Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function salvar(){
-        $query = "INSERT INTO usuario(nome, sobrenome, email, senha, nivel) VALUES
-                    (:nome, :sobrenome, :email, :senha, :nivel)";
+        public function salvar(){
+        $query = "INSERT INTO cadastro_pet(nasc_data, genero, tipo_id, raca_id, usuario_id,nomepet) VALUES
+                    (:nasc_data, :genero, :tipo_id, :raca_id, :usuario_id, :nomepet)";
         
         $stmt = $this->db->prepare($query);
-        $stmt->bindValue(":nome", $this->__get("nome"));
-        $stmt->bindValue(":sobrenome", $this->__get("sobrenome"));
-        $stmt->bindValue(":email", $this->__get("email"));
-        $stmt->bindValue(":senha", $this->__get("senha"));
-        $stmt->bindValue(":nivel", $this->__get("nivel"));
+        $stmt->bindValue(":nasc_data", $this->__get("nasc_data"));
+        $stmt->bindValue(":genero", $this->__get("genero"));
+        $stmt->bindValue(":tipo_id", $this->__get("tipo_id"));
+        $stmt->bindValue(":raca_id", $this->__get("raca_id"));
+        $stmt->bindValue(":usuario_id", $this->__get("usuario_id"));
+        $stmt->bindValue(":nomepet", $this->__get("nomepet"));
         
         $stmt->execute();
 

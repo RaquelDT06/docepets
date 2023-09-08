@@ -6,17 +6,41 @@ use App\controllers\AuthController;
 use Core\controller\Action;
 use Core\model\Container;
 
-// use Core\model\Container;
-
 class PetController extends Action
 {
+    // public function cadastrar()
+    // {
+
+    //     AuthController::validaAutenticacao();
+    //     $this->render("cadastrar", "template_admin");
+    // }
+
     public function cadastrar()
     {
-
         AuthController::validaAutenticacao();
+        
+        // Recupere o ID do usuário atual - substitua isso pelo código real para obter o ID do usuário
+        $usuarioId = 1; // Substitua pelo ID real do usuário logado
+    
+        // Obtenha a lista de pets do usuário
+        $pets = $this->getPetsDoUsuario($usuarioId);
+    
+        // Passe a lista de pets para a view
+        $this->view->pets = $pets;
+    
         $this->render("cadastrar", "template_admin");
     }
 
+    
+
+    public function getPetsDoUsuario($usuarioId)
+    {
+       
+        $pets = array();
+    
+        return $pets;
+    }
+    
     public function salvar_pet()
     {
 
@@ -66,4 +90,10 @@ class PetController extends Action
             echo "Código do validar";
         }
     }
+
+    
+   
+
 }
+
+?>
