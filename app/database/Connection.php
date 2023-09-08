@@ -14,7 +14,7 @@
             $db_name        =   "docepets_php";
             $db_driver      =   "mysql";
             $charset        =   "utf8";
-            $port           =   3306;
+            $port           =   3307;
 
             #informações sobre o sistema
             $nome_sistema   =   "";
