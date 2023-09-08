@@ -10,19 +10,20 @@ class AuthController extends Action
 {
 	public function autenticar()
 	{
-		$usuario = Container::getModel('Usuario');
-		// $usuario->__set('email', $_POST['email']);
+		$usuario = Container::getModel('Usuario');		
 		$usuario->__set('email', $_POST['email']);
 		$usuario->__set('senha', md5($_POST['senha']));
 		$usuario->autenticar();
 
 		if ($usuario->__get('id_usuario') != '' && $usuario->__get('nome')) {
 			session_start();
+
 			$_SESSION['id_usuario'] = $usuario->__get('id_usuario');
 			$_SESSION['nome'] = $usuario->__get('nome');
 			$_SESSION['sobrenome'] = $usuario->__get('sobrenome');
 			$_SESSION['nivel'] = $usuario->__get('nivel');
 			$_SESSION['email'] = $usuario->__get('email');
+
 			// $_SESSION['imagem'] = $usuario->__get('imagem');
 
 			header('Location: /admin');
@@ -41,6 +42,15 @@ class AuthController extends Action
 		if (!isset($_SESSION['id_usuario']) || $_SESSION['id_usuario'] == '' || !isset($_SESSION['nome']) || $_SESSION['nome'] == '') {
 			header('Location: /login?error=403');
 		}
+	}
+
+	public static function id_usuario_logado()
+	{
+		if (session_status() !== PHP_SESSION_ACTIVE) {
+			session_start();
+		}
+
+    	return $_SESSION['id_usuario'];
 	}
 
 	public static function esta_logado()

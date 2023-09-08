@@ -2,26 +2,20 @@
 
 namespace App\Models;
 
-// namespace App\models\UsuarioModel;
-
 use Core\Model\Model;
 
 use PDO;
 
-class UsuarioModel extends Model
+class AgendaModel extends Model
 {
-    private $id_usuario;
-    private $nome;
-    private $sobrenome;
-    private $email;
-    private $senha;
-    private $nivel;
-    private $ativo;
-    private $created_at;
-    private $update_at;
-    private $deleted_at;
-    // private $data_contrato;
-    // private $final_contrato;
+    private $id_agendamento;
+    private $nasc_data;
+    private $animal_tipo;
+    private $data_agend;
+    private $horario;
+    private $usuario_id;
+    private $pet_id;
+   
 
     public function __get($atributo)
     {
@@ -36,7 +30,7 @@ class UsuarioModel extends Model
     public function autenticar(){
 
 
-        $query = "SELECT id_usuario, nome, sobrenome, email,senha,nivel, ativo FROM usuario 
+        $query = "SELECT id_agendamento, nasc_data, animal_tipo, data_agend,horario,usuario_id, pet_id FROM agendamentos 
         WHERE email = :email and senha = :senha and ativo = 1";
 
     
@@ -48,23 +42,25 @@ class UsuarioModel extends Model
      
 
         if($stmt->rowCount()){
-            $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+            $agendamento = $stmt->fetch(PDO::FETCH_ASSOC);
 
             
-            if($usuario['id_usuario'] != '' && $usuario['nome']){
-                $this->__set('id_usuario', $usuario['id_usuario']);
-                $this->__set('nome', $usuario['nome']);
-                $this->__set('sobrenome', $usuario['sobrenome']);
-                $this->__set('email', $usuario['email']);
-                $this->__set('ativo', $usuario['ativo']);
+            if($agendamento['id_agendamento'] != '' && $agendamento['nome']){
+                $this->__set('id_agendamento', $agendamento['id_agendamento']);
+                $this->__set('nasc_data', $agendamento['nasc_data']);
+                $this->__set('animal_tipo', $agendamento['animal_tipo']);
+                $this->__set('data_agend', $agendamento['data_agend']);
+                $this->__set('horario', $agendamento['horario']);
                
             }
 
             return $this;
         }
 
+    
         
         return $this;
+        
         
     }
 

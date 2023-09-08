@@ -6,11 +6,9 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 $whoops->register();
 
-
 #opcao 01
+
 use App\Route;
 $route = new Route();
-
-
 
 ?>
