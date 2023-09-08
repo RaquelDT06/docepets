@@ -33,8 +33,7 @@ class UsuarioModel extends Model
 
     public function autenticar(){
 
-
-        $query = "SELECT id_usuario, nome, sobrenome, email,senha,nivel, ativo FROM usuario 
+        $query = "SELECT id_usuario, nome, sobrenome, email,senha, nivel, ativo FROM usuario 
         WHERE email = :email and senha = :senha and ativo = 1";
 
     
@@ -112,7 +111,7 @@ class UsuarioModel extends Model
         $stmt->bindValue(":email", $this->__get("email"));
         $stmt->bindValue(":senha", $this->__get("senha"));
         $stmt->bindValue(":nivel", $this->__get("nivel"));
-        
+            
         $stmt->execute();
 
         return $this;

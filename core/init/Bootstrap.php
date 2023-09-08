@@ -21,8 +21,6 @@
         public function setRoutes(array $routes) {
             $this->routes = $routes;
         }
-
-        
         
         protected function getUrl() {
             

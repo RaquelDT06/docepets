@@ -14,7 +14,7 @@ abstract class Action {
     protected function render($view, $layout) {
         $this->view->page = $view;
         
-        //a função file_exists verifica se um arquivo  existe dentro do diretorio informado. Caso existia a função retorna TRUE
+        //a função file_exists verifica se um arquivo existe dentro do diretorio informado. Caso existia a função retorna TRUE
         // caso nao exista a funca retorna FALSE
 
         if(file_exists("../app/views/layout/". $layout . ".phtml")) {
@@ -31,6 +31,5 @@ abstract class Action {
 
         $classeAtual = strtolower(str_replace('Controller', '', $classeAtual));
         require_once('../app/views/' . $classeAtual . '/' . $this->view->page . '.phtml');
-
     }
 }
