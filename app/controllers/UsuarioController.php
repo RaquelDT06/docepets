@@ -2,23 +2,14 @@
 
 namespace App\controllers;
 
-use App\controllers\AuthController;
 use Core\controller\Action;
 use Core\model\Container;
 session_start();
 
 
-// use Core\model\Container;
-
 class UsuarioController extends Action
 {
-    public function cadastrar()
-    {
-
-        AuthController::validaAutenticacao();
-        $this->render("cadastrar", "template_admin");
-    }
-
+ 
     public function salvar_usuario()
     {
 
@@ -66,6 +57,7 @@ class UsuarioController extends Action
                     "nivel" => isset($_POST['nivel']) ? 1 : 0
 
                 );
+
                 $this->render("cadastrar", "template_admin");
             }
         } else {

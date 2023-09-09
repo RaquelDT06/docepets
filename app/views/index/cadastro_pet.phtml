@@ -43,6 +43,14 @@ use App\Models\RacaModel;
         <label>Data Nascimento Pet</label>
         <input type="date" id="nasc_data" name="nasc_data" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
 
+      <label>Sexo do Pet</label>
+        <select id="genero_pet" name="genero" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
+            <option value="">Qual Sexo do Pet?</option>
+            <option value="macho">Macho</option>
+            <option value="femea">Fêmea</option>
+        </select>
+        <br>
+
         <label>Tipo Pet</label>
         <select name="id_pet" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
             <option value="select-pets">Seu pet é um...</option>
@@ -57,18 +65,14 @@ use App\Models\RacaModel;
             <?php foreach(RacaModel::listar() as $l) {?>
             <option value="<?= $l['id_raca'] ?>"><?= $l['descricao'] ?></option>
             <?php } ?>
-            
-        <label>Sexo do Pet: </label><br>
-        <input name="genero" type="radio" id="radio-gender1" data-test="radio-pet-female" class="radio__RadioInput" value="FEMALE">
-        <label for="radio-gender1" class="radio__Label">Fêmea</label>
-        <input name="genero" type="radio" id="radio-gender2" data-test="radio-pet-male" class="radio__RadioInput" value="MALE">
-        <label for="radio-gender2" class="radio__Label">Macho</label>
-        <br>
+        <br>   
+
         <label>Para mais atenção com o seu pet</label> 
         <input type="text" id="observacoes" name="observacoes" placeholder="Informações extras" class="form-control mb-4 shadow rounded-0">
         <div class="col-12 col-md-6 mb-3">
             <input class="btn btn-success" type="submit" value="Cadastrar" />
         </div>
+
     </form>
 </div>
 </div>
