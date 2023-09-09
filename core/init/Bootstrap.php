@@ -2,6 +2,9 @@
 
     namespace Core\init;
 
+use Core\Model\Model;
+use Core\Model\Query;
+
     abstract class Bootstrap {
         private $routes;
         
@@ -10,6 +13,7 @@
         
         public function __construct()
         {
+           Query::StartStaticConn();
            $this->initRoutes();
            $this->run($this->getUrl());
         }

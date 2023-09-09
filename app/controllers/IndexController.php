@@ -2,6 +2,8 @@
 
 namespace App\controllers;
 
+//use App\Models\TipoModel;
+
 use Core\controller\Action;
 
 
@@ -37,7 +39,7 @@ class IndexController extends Action
     }
     public function cadastro_pet()
     {
-        
+
         $this->render("cadastro_pet","template_admin");
  
     }

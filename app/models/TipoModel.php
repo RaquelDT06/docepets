@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Core\Model\Model;
-
+use Core\Model\Query;
 use PDO;
 use PDOException;
 
@@ -23,13 +23,10 @@ class TipoModel extends Model
         $this->$atributo = $valor;
     }
 
-    public function listar()
+    public static function listar()
     {
         try {
-            $query = "SELECT id_tipo, descricao FROM tipo_pet";
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return Query::execute("SELECT id_pet, descricao FROM tipo_pet");
         } catch (PDOException $error) {
             die("Erro ao listar raça: " . $error->getMessage());
         }

@@ -1,6 +1,12 @@
+<?php 
+use App\Models\TipoModel;
+
+?>
 <div class="container-fluid px-4">
+
     <?php
     // dd($this->view->status);
+
     if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
     ?>
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -34,16 +40,18 @@
         <label>Nome do pet</label>
         <input type="text" id="name" name="name" placeholder="Nome do pet" class="form-control mb-4 shadow rounded-0">
         <label>Data Nascimento Pet</label>
-        <input type="date" id="Nascimento" name="Nascimento" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
+        <input type="date" id="Nascimento" name="nascimento" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
 
         <label>Tipo Pet</label>
-        <select id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
+        <select name="id_pet" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
             <option value="select-pets">Seu pet é um...</option>
-            <option value="listar"></option>
+            <?php foreach(TipoModel::listar() as $l) {?>
+            <option value="<?= $l['id_pet'] ?>"><?= $l['descricao'] ?></option>
+            <?php } ?>
         </select>
 
         <label>Raça do Pet</label>
-        <select id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
+        <select name="raca_pet" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
             <option value="select-pets">Raça do seu Pet</option>
         </select>
         <label>Sexo do Pet: </label><br>

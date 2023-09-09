@@ -14,12 +14,12 @@
             $db_name        =   "docepets_php";
             $db_driver      =   "mysql";
             $charset        =   "utf8";
-            $port           =   3307;
+            $port           =   3306;
 
             #informações sobre o sistema
             $nome_sistema   =   "";
             $email          =   "";
-
+      
              try {
                 $conn = new PDO (
                     $db_driver .
