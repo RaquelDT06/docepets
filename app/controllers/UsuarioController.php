@@ -5,6 +5,8 @@ namespace App\controllers;
 use App\controllers\AuthController;
 use Core\controller\Action;
 use Core\model\Container;
+session_start();
+
 
 // use Core\model\Container;
 
@@ -24,6 +26,10 @@ class UsuarioController extends Action
 
         //istancia
         $usuario = Container::getModel("Usuario");
+
+        if(!isset($_SESSION['id_usuario'])) {
+            // Nao logado
+        }
 
         //recebe dados
         $usuario->__set('nome', $_POST['nome']);

@@ -9,7 +9,7 @@ use PDOException;
 
 class TipoModel extends Model
 {
-    private $id_tipo;
+    private $id_pet;
     private $descricao;
 
 

@@ -68,6 +68,7 @@ ALTER TABLE docepets_php.agendamentos ADD pet_id INT NOT NULL;
 ALTER TABLE docepets_php.agendamentos ADD CONSTRAINT agendamentos_FK FOREIGN KEY (pet_id) REFERENCES docepets_php.cadastro_pet(id_pet_cad) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE docepets_php.cadastro_pet ADD nomepet varchar(100) NOT NULL;
+ALTER TABLE docepets_php.cadastro_pet ADD observacoes varchar(255);
 
 ALTER TABLE docepets_php.usuario MODIFY COLUMN created_at datetime DEFAULT NOW() NOT NULL;
 

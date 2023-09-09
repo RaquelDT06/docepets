@@ -31,6 +31,9 @@ abstract class Action {
         $classeAtual = str_replace('App\\controllers\\', '', $classeAtual);
 
         $classeAtual = strtolower(str_replace('Controller', '', $classeAtual));
+
+// dd($classeAtual);
+
         require_once('../app/views/' . $classeAtual . '/' . $this->view->page . '.phtml');
     }
 }
