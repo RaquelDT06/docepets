@@ -1,5 +1,6 @@
 <?php 
 use App\Models\TipoModel;
+use App\Models\RacaModel;
 
 ?>
 <div class="container-fluid px-4">
@@ -51,11 +52,13 @@ use App\Models\TipoModel;
         </select>
 
         <label>Raça do Pet</label>
-        <select name="raca_pet" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
+        <select name="id_raca" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
             <option value="select-pets">Raça do seu Pet</option>
-        </select>
+            <?php foreach(RacaModel::listar() as $l) {?>
+            <option value="<?= $l['id_raca'] ?>"><?= $l['descricao'] ?></option>
+            <?php } ?>
+            
         <label>Sexo do Pet: </label><br>
-        
         <input type="radio" id="radio-gender1" data-test="radio-pet-female" class="radio__RadioInput" value="FEMALE">
         <label for="radio-gender1" class="radio__Label">Fêmea</label>
         <input type="radio" id="radio-gender2" data-test="radio-pet-male" class="radio__RadioInput" value="MALE">

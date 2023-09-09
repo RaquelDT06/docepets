@@ -28,7 +28,7 @@ class TipoModel extends Model
         try {
             return Query::execute("SELECT id_pet, descricao FROM tipo_pet");
         } catch (PDOException $error) {
-            die("Erro ao listar raça: " . $error->getMessage());
+            die("Erro ao listar tipo: " . $error->getMessage());
         }
     }
 }

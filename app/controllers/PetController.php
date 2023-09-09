@@ -20,10 +20,13 @@ class PetController extends Action
     public function salvar_pet()
     {
 
-        dd($_POST);
+      //  dd($_POST);
 
         //istancia
         $pet = Container::getModel("Pet");
+        if(!isset($_SESSION['id_usuario'])) {
+            // Nao logado
+        }
 
         //recebe dados
         $pet->__set('nomepet', $_POST["nomepet"]);
@@ -31,7 +34,7 @@ class PetController extends Action
         $pet->__set('genero', $_POST['genero']);
         $pet->__set('tipo_id', $_POST['tipo_id']);
         $pet->__set('raca_id', $_POST['raca_id']);
-        $pet->__set("usuario_id", $_POST['usuario_id']);      
+        $pet->__set("usuario_id", $_SESSION['id_usuario']);      
 
         //valida campos
 
