@@ -37,12 +37,12 @@ class IndexController extends Action
         $this->render("agendamento","template_admin");
  
     }
-    public function cadastro_pet()
-    {
+    // public function cadastro_pet()
+    // {
 
-        $this->render("cadastro_pet","template_admin");
+    //     $this->render("cadastro_pet","template_admin");
  
-    }
+    // }
 
     public function login() {
         $this->view->login = isset($_GET['error']) ? $_GET['error'] : '';

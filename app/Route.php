@@ -16,7 +16,7 @@
             $routes['login'] = array('route'=>'/login', 'controller' => 'IndexController', 'action' => 'login');
             $routes['quem_somos'] = array('route'=>'/quem_somos', 'controller' => 'IndexController', 'action' => 'quem_somos');
             $routes['agendamento'] = array('route'=>'/agendamento', 'controller' => 'IndexController', 'action' => 'agendamento');
-            $routes['cadastro_pet'] = array('route'=>'/cadastro_pet', 'controller' => 'IndexController', 'action' => 'cadastro_pet');
+            // $routes['cadastro_pet'] = array('route'=>'/cadastro_pet', 'controller' => 'IndexController', 'action' => 'cadastro_pet');
             //rotas do ErrorController
 
             //rotas do AuthController
@@ -30,8 +30,10 @@
 
             //rotas do UsuarioController
             $routes['usuario_novo'] =  array('route'=>'/usuario_novo','controller'=>'UsuarioController','action'=>'cadastrar');
-
             $routes['salvar_usuario'] =  array('route'=>'/salvar_usuario','controller'=>'UsuarioController','action'=>'salvar_usuario');
+
+            //rotas do PetController
+            $routes['cadastro_pet'] =  array('route'=>'/cadastro_pet','controller'=>'PetController','action'=>'cadastro_pet');
             $routes['salvar_pet'] =  array('route'=>'/salvar_pet','controller'=>'PetController','action'=>'salvar_pet');
             
 
@@ -40,5 +42,3 @@
 
         
     }
-
-?>

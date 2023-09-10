@@ -9,7 +9,13 @@ session_start();
 
 class UsuarioController extends Action
 {
- 
+    public function cadastrar()
+    {
+
+        AuthController::validaAutenticacao();
+        $this->render("cadastrar", "template_admin");
+    }
+
     public function salvar_usuario()
     {
 

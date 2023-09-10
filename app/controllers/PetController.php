@@ -8,6 +8,14 @@ session_start();
 
 class PetController extends Action
 {
+
+    public function cadastr0_pet()
+    {
+
+        AuthController::validaAutenticacao();
+        $this->render("cadastrar_pet", "template_admin");
+    }
+
     public function salvar_pet()
     {
 
@@ -16,7 +24,7 @@ class PetController extends Action
         //istancia
         $pet = Container::getModel("Pet");
 
-        if (!isset($_SESSION['id_usuario'])) {
+        if (!isset($_SESSION['id_pet_cad'])) {
             // Nao logado
         }
 
@@ -42,7 +50,7 @@ class PetController extends Action
                     "status" => "SUCCESS",
                     "msg" => "Cadastro realizado com sucesso"
                 );
-                $this->render("cadastrar", "template_admin");
+                $this->render("cadastro_pet", "template_admin");
             } else {
                 $this->view->status = array(
                     "status" => "ERROR",
