@@ -9,11 +9,11 @@ session_start();
 class PetController extends Action
 {
 
-    public function cadastr0_pet()
+    public function cadastro_pet()
     {
 
         AuthController::validaAutenticacao();
-        $this->render("cadastrar_pet", "template_admin");
+        $this->render("cadastro_pet", "template_admin");
     }
 
     public function salvar_pet()
@@ -67,16 +67,6 @@ class PetController extends Action
                     'usuario_id', $_POST["usuario_id"],
                     'observacoes', $_POST["observacoes"]
                 );
-
-                //require_once(../app/views/pet/cadastrar.phtml):
-                //sugestão
-                //aqui ele não consegue puxar a tela de volta
-
-                //fazer igual no usuario
-                //mover o html para uma pasta chamada Pet dentro da pasta view
-
-                // descomentar isso gera o erro de arquivo não encontrado
-                //  $this->render("cadastrar", "template_admin");
 
             }
         } else {
