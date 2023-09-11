@@ -21,6 +21,7 @@ class IndexController extends Action
     {
     
         $this->render("quem_somos","template_normal");
+      
         
     }
 
