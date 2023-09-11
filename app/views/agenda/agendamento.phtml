@@ -1,6 +1,10 @@
 <div class="container-fluid px-4">
   <?php
   // dd($this->view->status);
+
+  use App\Models\AgendaModel;
+
+
   if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
   ?>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -29,23 +33,20 @@
     <li class="breadcrumb-item active">Cuide do seu melhor amigo com apenas um clique | Faça uma agendamento</li>
   </ol>
 
-  <form action="/agendamento" method="POST" enctype="multipart/form-data">
+  <form action="/salvar_agenda" method="POST" enctype="multipart/form-data">
     <br>
-    <label for="ownerName">Nome do Dono:
+    <label for="usuario_id" >Nome do Dono:
       <b><?php echo $_SESSION['nome']; ?> <?php echo $_SESSION['sobrenome']; ?></b>
     </label>
     <br>
     <br>
-    <label for="nomepet">Selecione seu Pet</label>
+    <label for="nomepet">Pet</label>
     <select id="nomepet" name="pet_id" class="form-control mb-4 shadow rounded-0" required>
-      <option> <?php
-                $pets = array();
-
-                foreach ($pets as $petId => $petNome) {
-                  echo "<option value='$petId'>$petNome</option>";
-                }
-                ?>
-      </option>
+      <option value="" disabled selected>Escolha seu pet</option>
+      <?php foreach (AgendaModel::listar() as $l) { ?>
+        <option value="<?= $l['id_pet_cad'] ?>"><?= $l['nomepet'] ?>
+        <?php } ?>
+        </option>
     </select>
     <label>Serviços:</label>
     <select name="servicos" id="servicos" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0" required>
@@ -56,11 +57,11 @@
     </select>
     <label for="data_agend">Data do Agendamento:</label>
     <input type="date" id="data_agend" name="data_agend" class="form-control mb-4 shadow rounded-0" required>
-    <label for="appointmentTime">Horário do Agendamento:</label>
+    <label for="horario">Horário do Agendamento:</label>
     <input type="time" id="horario" name="horario" class="form-control mb-4 shadow rounded-0" required>
 
     <div class="col-12 col-md-6 mb-3">
-      <input class="btn btn-success" type="submit" value="salvar_agenda" />
+      <input class="btn btn-success" type="submit" value="Agendar" />
     </div>
   </form>
 

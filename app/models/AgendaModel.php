@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Core\Model\Model;
-
+use Core\Model\Query;
 use PDO;
+use PDOException;
 
 class AgendaModel extends Model
 {
@@ -45,10 +46,12 @@ class AgendaModel extends Model
             $agendamentos = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-            if ($agendamentos['id_agendamento'] != '' && $agendamentos['nomepet']) {
+            if ($agendamentos['id_agendamento'] != '' && $agendamentos['pet_id']) {
                 $this->__set('id_agendamento', $agendamentos['id_agendamento']);
                 $this->__set('data_agend', $agendamentos['data_agend']);
                 $this->__set('horario', $agendamentos['horario']);
+                $this->__set('usuario_id', $agendamentos['usuario_id']);
+                $this->__set('pet_id', $agendamentos['pet_id']);
                 $this->__set('servicos', $agendamentos['servicos']);
             }
 
@@ -100,5 +103,13 @@ class AgendaModel extends Model
         return $this;
     }
 
-    
+    public static function listar()
+    {
+        try {
+
+            return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet ");
+        } catch (PDOException $error) {
+            die("Erro ao listar tipo: " . $error->getMessage());
+        }
+    }
 }
