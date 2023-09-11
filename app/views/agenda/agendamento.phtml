@@ -1,0 +1,68 @@
+<div class="container-fluid px-4">
+  <?php
+  // dd($this->view->status);
+  if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
+  ?>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <strong>MENSAGEM: </strong> <?= $this->view->status['msg'] ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <?php
+  }
+  ?>
+
+  <?php
+  // dd($this->view->status);
+  if (isset($this->view->status) && $this->view->status['status'] == "SUCCESS") {
+  ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>MENSAGEM: </strong> <?= $this->view->status['msg'] ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <?php
+  }
+  ?>
+
+
+  <h1 class="section-title text-success">Agendamento</h1>
+  <ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cuide do seu melhor amigo com apenas um clique | Faça uma agendamento</li>
+  </ol>
+
+  <form action="/agendamento" method="POST" enctype="multipart/form-data">
+    <br>
+    <label for="ownerName">Nome do Dono:
+      <b><?php echo $_SESSION['nome']; ?> <?php echo $_SESSION['sobrenome']; ?></b>
+    </label>
+    <br>
+    <br>
+    <label for="nomepet">Selecione seu Pet</label>
+    <select id="nomepet" name="pet_id" class="form-control mb-4 shadow rounded-0" required>
+      <option> <?php
+                $pets = array();
+
+                foreach ($pets as $petId => $petNome) {
+                  echo "<option value='$petId'>$petNome</option>";
+                }
+                ?>
+      </option>
+    </select>
+    <label>Serviços:</label>
+    <select name="servicos" id="servicos" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0" required>
+      <option value="" disabled selected>Escolha um serviço</option>
+      <option value="banho">Banho</option>
+      <option value="tosa">Banho e Tosa</option>
+      <option value="consulta_veterinaria">Consulta Veterinária</option>
+    </select>
+    <label for="data_agend">Data do Agendamento:</label>
+    <input type="date" id="data_agend" name="data_agend" class="form-control mb-4 shadow rounded-0" required>
+    <label for="appointmentTime">Horário do Agendamento:</label>
+    <input type="time" id="horario" name="horario" class="form-control mb-4 shadow rounded-0" required>
+
+    <div class="col-12 col-md-6 mb-3">
+      <input class="btn btn-success" type="submit" value="salvar_agenda" />
+    </div>
+  </form>
+
+</div>
+</div>

@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 use App\Models\TipoModel;
 use App\Models\RacaModel;
 
@@ -31,43 +32,43 @@ use App\Models\RacaModel;
     ?>
 
     <h1 class="section-title text-success">Perfil do Pet</h1>
-    <br>
+
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item active">Preencha o formulário com os dados do pet abaixo e clique em cadastrar</li>
     </ol>
 
     <form action="/salvar_pet" method="POST" enctype="multipart/form-data">
-        <br>
+
         <label>Nome do pet</label>
         <input type="text" id="nomepet" name="nomepet" placeholder="Nome do pet" class="form-control mb-4 shadow rounded-0">
         <label>Data Nascimento Pet</label>
         <input type="date" id="nasc_data" name="nasc_data" placeholder="DD/MM/AAAA" class="form-control mb-4 shadow rounded-0">
 
-      <label>Sexo do Pet</label>
+        <label>Sexo do Pet</label>
         <select id="genero_pet" name="genero" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
-            <option value="">Qual Sexo do Pet?</option>
+            <option value="" disabled selected>Qual Sexo do Pet?</option>
             <option value="macho">Macho</option>
             <option value="femea">Fêmea</option>
         </select>
-        <br>
+
 
         <label>Tipo Pet</label>
         <select name="id_pet" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
-            <option value="select-pets">Seu pet é um...</option>
-            <?php foreach(TipoModel::listar() as $l) {?>
-            <option value="<?= $l['id_pet'] ?>"><?= $l['descricao'] ?></option>
+            <option value="select-pets" disabled selected>Seu pet é um...</option>
+            <?php foreach (TipoModel::listar() as $l) { ?>
+                <option value="<?= $l['id_pet'] ?>"><?= $l['descricao'] ?></option>
             <?php } ?>
         </select>
 
         <label>Raça do Pet</label>
         <select name="id_raca" id="select-pets" data-test="select-pet-breed" class="form-control mb-4 shadow rounded-0">
-            <option value="select-pets">Raça do seu Pet</option>
-            <?php foreach(RacaModel::listar() as $l) {?>
-            <option value="<?= $l['id_raca'] ?>"><?= $l['descricao'] ?></option>
+            <option value="select-pets" disabled selected>Raça do seu Pet</option>
+            <?php foreach (RacaModel::listar() as $l) { ?>
+                <option value="<?= $l['id_raca'] ?>"><?= $l['descricao'] ?></option>
             <?php } ?>
-        <br>   
+        </select>
 
-        <label>Para mais atenção com o seu pet</label> 
+        <label>Para mais atenção com o seu pet</label>
         <input type="text" id="observacoes" name="observacoes" placeholder="Informações extras" class="form-control mb-4 shadow rounded-0">
         <div class="col-12 col-md-6 mb-3">
             <input class="btn btn-success" type="submit" value="salvar_pet" />

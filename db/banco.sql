@@ -69,6 +69,9 @@ ALTER TABLE docepets_php.agendamentos ADD CONSTRAINT agendamentos_FK FOREIGN KEY
 
 ALTER TABLE docepets_php.cadastro_pet ADD nomepet varchar(100) NOT NULL;
 ALTER TABLE docepets_php.cadastro_pet ADD observacoes varchar(255);
+alter table agendamentos add column servicos varchar(100) not null;
+alter table agendamentos drop column nasc_data;
+alter table agendamentos drop column animal_tipo;
 
 ALTER TABLE docepets_php.usuario MODIFY COLUMN created_at datetime DEFAULT NOW() NOT NULL;
 

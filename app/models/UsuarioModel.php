@@ -57,6 +57,8 @@ class UsuarioModel extends Model
                
             }
 
+            
+
             return $this;
         }
 

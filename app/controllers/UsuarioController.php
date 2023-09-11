@@ -4,7 +4,7 @@ namespace App\controllers;
 
 use Core\controller\Action;
 use Core\model\Container;
-session_start();
+
 
 
 class UsuarioController extends Action
