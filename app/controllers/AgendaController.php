@@ -26,7 +26,7 @@ class AgendaController extends Action
     public function salvar_agenda()
     {
 
-        dd($_POST);
+        // dd($_POST);
 
         //istancia
         $agendamentos = Container::getModel("Agenda");
@@ -44,10 +44,11 @@ class AgendaController extends Action
         $agendamentos->__set('pet_id', $_POST['pet_id']);
         $agendamentos->__set('servicos', $_POST['servicos']);
 
+        // dd($agendamentos);
         //valida campos
 
-        if ($agendamentos->validarCadastro()) {
-            if (count($agendamentos->getPets()) == 0) {
+       
+            // if (count($agendamentos->getPets()) == 0) {
 
                 $agendamentos->salvar();
 
@@ -56,27 +57,26 @@ class AgendaController extends Action
                     "msg" => "Cadastro realizado com sucesso"
                 );
                 $this->render("agendamento", "template_admin");
-            } else {
-                $this->view->status = array(
-                    "status" => "ERROR",
-                    "msg" => "Cadastro não realizado"
-                );
+            
+            // } else {
+            //     $this->view->status = array(
+            //         "status" => "ERROR",
+            //         "msg" => "Cadastro não realizado"
+            //     );
 
-                // salvar e permanecer dados
-                $this->view->temagendamento = array(
+            //     // salvar e permanecer dados
+            //     $this->view->temagendamento = array(
                     
-                    'data_agend', $_POST['data_agend'],
-                    'horario', $_POST["horario"],
-                    'usuario_id', $_POST["usuario_id"],
-                    'pet_id', $_POST["pet_id"],
-                    'servicos', $_POST["servicos"],
+            //         'data_agend', $_POST['data_agend'],
+            //         'horario', $_POST["horario"],
+            //         'usuario_id', $_POST["usuario_id"],
+            //         'pet_id', $_POST["pet_id"],
+            //         'servicos', $_POST["servicos"],
 
-                );
+            //     );
 
-                $this->render("agendamento", "template_admin");
-            }
-        } else {
-            echo "Código do validar";
-        }
+                // $this->render("agendamento", "template_admin");
+            // }
+        
     }
 }

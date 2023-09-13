@@ -67,6 +67,8 @@ class AgendaModel extends Model
     {
         $valido = true;
 
+        
+
         if (strlen($this->__get("nomepet")) < 3) {
             $valido = false;
             echo "Nome menor que 3";
@@ -88,6 +90,7 @@ class AgendaModel extends Model
     public function salvar()
     {
 
+        
         $query = "INSERT INTO agendamentos(data_agend, horario,usuario_id, pet_id, servicos) VALUES
                     (:data_agend, :horario, :usuario_id, :pet_id, :servicos)";
 
@@ -99,15 +102,16 @@ class AgendaModel extends Model
         $stmt->bindValue(":servicos", $this->__get("servicos"));
 
         $stmt->execute();
-
+        
         return $this;
     }
 
     public static function listar()
     {
         try {
-
-            return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet ");
+            $id_usuario = $_SESSION['id_usuario'];
+            return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet 
+            where usuario_id = $id_usuario");
         } catch (PDOException $error) {
             die("Erro ao listar tipo: " . $error->getMessage());
         }

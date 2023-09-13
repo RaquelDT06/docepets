@@ -1,6 +1,8 @@
 <div class="container-fluid px-4">
   <?php
   // dd($this->view->status);
+// print_r($_SESSION);
+  
 
 use App\Models\AgendaModel;
 
@@ -37,6 +39,7 @@ use App\Models\AgendaModel;
     <br>
     <label for="usuario_id" >Nome do Dono:
       <b><?php echo $_SESSION['nome']; ?> <?php echo $_SESSION['sobrenome']; ?></b>
+      
     </label>
     <br>
     <br>
@@ -61,6 +64,8 @@ use App\Models\AgendaModel;
     <input type="time" id="horario" name="horario" class="form-control mb-4 shadow rounded-0" required>
 
     <div class="col-12 col-md-6 mb-3">
+
+      <input type="hidden" name="usuario_id" value="<?= $_SESSION['id_usuario'];?>"   />
       <input class="btn btn-success" type="submit" value="Agendar" />
     </div>
   </form>

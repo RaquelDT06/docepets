@@ -12,7 +12,7 @@ class UsuarioController extends Action
     public function cadastrar()
     {
 
-        AuthController::validaAutenticacao();
+        // AuthController::validaAutenticacao();
         $this->render("cadastrar", "template_admin");
     }
 
