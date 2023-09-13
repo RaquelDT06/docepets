@@ -30,6 +30,7 @@ class Route extends Bootstrap
         //rotas do UsuarioController
         $routes['usuario_novo'] =  array('route' => '/usuario_novo', 'controller' => 'UsuarioController', 'action' => 'cadastrar');
         $routes['salvar_usuario'] =  array('route' => '/salvar_usuario', 'controller' => 'UsuarioController', 'action' => 'salvar_usuario');
+        // $routes['listar_usuario'] =  array('route' => '/listar_usuario', 'controller' => 'UsuarioController', 'action' => 'listar_usuario');
 
         //rotas do PetController
         $routes['cadastro_pet'] =  array('route' => '/cadastro_pet', 'controller' => 'PetController', 'action' => 'cadastro_pet');
@@ -38,6 +39,7 @@ class Route extends Bootstrap
         //rotas do AgendaController
         $routes['agendamento'] =  array('route' => '/agendamento', 'controller' => 'AgendaController', 'action' => 'cadastrar');
         $routes['salvar_agenda'] = array('route' => '/salvar_agenda', 'controller' => 'AgendaController', 'action' => 'salvar_agenda');
+        // $routes['listar_agenda'] = array('route' => '/listar_agenda', 'controller' => 'AgendaController', 'action' => 'listar_agenda');
 
         $this->setRoutes($routes);
     }

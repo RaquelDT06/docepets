@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Core\Model\Model;
-
 use PDO;
+
 
 class UsuarioModel extends Model
 {
@@ -119,4 +119,5 @@ class UsuarioModel extends Model
         return $this;
     }
 
+    
 }

@@ -2,7 +2,7 @@
   <?php
   // dd($this->view->status);
 
-  use App\Models\AgendaModel;
+use App\Models\AgendaModel;
 
 
   if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
@@ -30,7 +30,7 @@
 
   <h1 class="section-title text-success">Agendamento</h1>
   <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-item active">Cuide do seu melhor amigo com apenas um clique | Faça uma agendamento</li>
+    <li class="breadcrumb-item active">Cuide do seu melhor amigo com apenas um clique | Faça um agendamento</li>
   </ol>
 
   <form action="/salvar_agenda" method="POST" enctype="multipart/form-data">

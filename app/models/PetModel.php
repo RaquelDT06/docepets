@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Core\Model\Model;
+use Core\Model\Query;
+use PDOException;
 
 class PetModel extends Model
 {
@@ -52,6 +54,15 @@ class PetModel extends Model
         $stmt->execute();
 
         return $this;
+    }
+
+    public static function listar()
+    {
+        try {
+            return Query::execute("SELECT nomepet FROM cadastro_pet");
+        } catch (PDOException $error) {
+            die("Erro ao listar raça: " . $error->getMessage());
+        }
     }
 
 }
