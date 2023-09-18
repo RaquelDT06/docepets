@@ -106,6 +106,14 @@ class AgendaModel extends Model
         return $this;
     }
 
+    public function getAgendamentos() {
+        $sql = "select a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
+        a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet from agendamentos as a 
+        inner join usuario as u on id_usuario = usuario_id 
+        inner join cadastro_pet as p on id_pet_cad = id_agendamento";
+        return $this->db->query($sql)->fetchAll();
+    }
+
     public static function listar()
     {
         try {

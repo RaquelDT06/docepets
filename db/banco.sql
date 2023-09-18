@@ -257,3 +257,7 @@ INSERT INTO docepets_php.raca_pet (descricao) VALUES ('Yorkshire Terrier');
 
 --INSERT INTO `docepets_php`.`usuario` (`id_usuario`, `nome`, `sobrenome`, `email`, `senha`, `nivel`, `ativo`, `created_at`) VALUES ('1', 'admin', 'admin', 'admin@admin', '21232f297a57a5a743894a0e4a801fc3', '1', '1', '2023-01-01');
 
+select a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
+                a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet from agendamentos as a 
+                inner join usuario as u on id_usuario = usuario_id 
+                inner join cadastro_pet as p on id_pet_cad = id_agendamento
