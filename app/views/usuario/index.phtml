@@ -12,35 +12,36 @@
 </head>
 
 
-<h1>Agendamentos pendentes...</h1>
+<h1>Usuarios</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th scope="col">Nome</th>
-            <th scope="col">Pet</th>
-            <th scope="col">Serviço</th>
-            <th scope="col">Data</th>
-            <th scope="col">Hora</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Senha</th>
             <th scope="col"></th>
+
         </tr>
     </thead>
     <tbody>
         <?php
-        foreach ($this->view->dados as $indice => $agendamento) {
+        foreach ($this->view->dados as $indice => $usuario) {
 
         ?>
             <tr>
-                <th scope="row"><?= $agendamento['nome_usuario'] . ' ' . $agendamento['sobrenome_usuario']; ?></th>
-                <td><?= $agendamento['nomepet']; ?></td>
-                <td><?= $agendamento['servicos']; ?></td>
-                <td><?= $agendamento['data_agend']; ?></td>
-                <td><?= $agendamento['horario']; ?></td>
+                <th scope="row"><?= $usuario['nome'] ?></th>
+                <th scope="row"><?= $usuario['sobrenome'] ?></th>
+                <td><?= $usuario['email']; ?></td>
+                <td><?= $usuario['senha']; ?></td>
                 <td>
-                    <a class="btn btn-secondary btn-sm" href="../agenda/editar_agendamento.phtml<?=$agendamento['id_agendamento']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger btn-sm" href="?excluir=<?= $agendamento['id_agendamento']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-x-square"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-danger btn-sm" href="?excluir=<?= $usuario['id_usuario']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-x-square"></i></a>
 
                 </td>
+
+
             </tr>
         <?php
         }

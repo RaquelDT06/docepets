@@ -119,5 +119,10 @@ class UsuarioModel extends Model
         return $this;
     }
 
+    public function getUsuarios() {
+        $sql = "SELECT id_usuario, nome,sobrenome,email,senha  FROM usuario;";
+        return $this->db->query($sql)->fetchAll();
+    }
+
     
 }

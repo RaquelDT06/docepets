@@ -46,7 +46,12 @@
             </div>
         </div>
 
-        
+        <!-- <div class="row">
+            <div class="col-12 col-md-8 mb-3">
+                <label for="file_imagem" class="form-label">Envie um arquivo de imagem (Opcional)</label>
+                <input type="file" name="file_imagem" id="file_imagem" class="form-control" accept="image/*">
+            </div>
+        </div> -->
 
         <!-- dados de login -->
         <div class="row">
@@ -66,19 +71,17 @@
         </div>
 
 
-
         <div class="row">
-            <div class="col-12 col-md-3 mb-1 mt-1">
-                <input type="checkbox" class="btn-check" id="btn-check-outlined" name="nivel" <?php
-                                                                                                if (isset($this->view->temusuario['nivel']) && $this->view->temusuario['nivel'] == 1) {
-                                                                                                    echo "checked";
-                                                                                                }
-                                                                                                ?> autocomplete="off">
+    <div class="col-12 col-md-3 mb-1 mt-1">
+        <input type="checkbox" class="btn-check" id="btn-check-outlined" name="nivel" <?php
+                                                                                        if (isset($this->view->temusuario['nivel']) && $this->view->temusuario['nivel'] == 1) {
+                                                                                            echo "checked";
+                                                                                        }
+                                                                                        ?> autocomplete="off">
+        <label class="btn btn-success" for="btn-check-outlined">Administrador</label><br>
+    </div>
+</div>
 
-
-                <label class="btn btn-success" for="btn-check-outlined">Administrador</label><br>
-            </div>
-        </div>
         <?php
 
         ?>

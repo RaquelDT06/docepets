@@ -25,12 +25,17 @@ class Route extends Bootstrap
 
         //rotas do AdminController
         $routes['admin'] =  array('route' => '/admin', 'controller' => 'AdminController', 'action' => 'index');
+        $routes['user'] =  array('route' => '/user', 'controller' => 'UsuarioController', 'action' => 'index');
 
 
         //rotas do UsuarioController
         $routes['usuario_novo'] =  array('route' => '/usuario_novo', 'controller' => 'UsuarioController', 'action' => 'cadastrar');
         $routes['salvar_usuario'] =  array('route' => '/salvar_usuario', 'controller' => 'UsuarioController', 'action' => 'salvar_usuario');
-        // $routes['listar_usuario'] =  array('route' => '/listar_usuario', 'controller' => 'UsuarioController', 'action' => 'listar_usuario');
+        $routes['cadastrar_usuario'] =  array('route' => '/cadastrar_usuario', 'controller' => 'UsuarioController', 'action' => 'salvar_usuario');
+        
+     
+        
+        
 
         //rotas do PetController
         $routes['cadastro_pet'] =  array('route' => '/cadastro_pet', 'controller' => 'PetController', 'action' => 'cadastro_pet');

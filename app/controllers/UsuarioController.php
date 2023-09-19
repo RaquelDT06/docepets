@@ -70,4 +70,16 @@ class UsuarioController extends Action
             echo "Código do validar";
         }
     }
+
+    public function index()
+    {
+
+        AuthController::validaAutenticacao();
+        $usuario = Container::getModel("Usuario");
+        $usuario  = $usuario ->getUsuarios();
+
+        $this->view->dados = $usuario ;        
+        
+        $this->render("index", "template_admin");
+}
 }
