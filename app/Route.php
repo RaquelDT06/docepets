@@ -39,7 +39,7 @@ class Route extends Bootstrap
         //rotas do AgendaController
         $routes['agendamento'] =  array('route' => '/agendamento', 'controller' => 'AgendaController', 'action' => 'cadastrar');
         $routes['salvar_agenda'] = array('route' => '/salvar_agenda', 'controller' => 'AgendaController', 'action' => 'salvar_agenda');
-        // $routes['listar_agenda'] = array('route' => '/listar_agenda', 'controller' => 'AgendaController', 'action' => 'listar_agenda');
+        $routes['editar_agendamento'] = array('route' => '/editar_agendamento', 'controller' => 'AgendaController', 'action' => 'atualizar_agenda');
 
         $this->setRoutes($routes);
     }

@@ -37,7 +37,7 @@
                 <td><?= $agendamento['data_agend']; ?></td>
                 <td><?= $agendamento['horario']; ?></td>
                 <td>
-                    <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="/editar_agendamento?id=<?= $agendamento['id_agendamento']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
                     <a class="btn btn-danger btn-sm" href="?excluir=<?= $agendamento['id_agendamento']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-x-square"></i></a>
 
                 </td>

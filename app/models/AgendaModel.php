@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Core\Model\Model;
 use Core\Model\Query;
+use Exception;
 use PDO;
 use PDOException;
 
@@ -107,12 +108,14 @@ class AgendaModel extends Model
     }
 
     public function getAgendamentos() {
-        $sql = "select a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
-        a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet from agendamentos as a 
-        inner join usuario as u on id_usuario = usuario_id 
-        inner join cadastro_pet as p on id_pet_cad = id_agendamento";
+        $sql = "SELECT a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
+                a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet
+                FROM agendamentos as a 
+                INNER JOIN usuario as u ON a.usuario_id = u.id_usuario
+                INNER JOIN cadastro_pet as p ON a.pet_id = p.id_pet_cad";
         return $this->db->query($sql)->fetchAll();
     }
+    
 
     public static function listar()
     {
@@ -124,4 +127,43 @@ class AgendaModel extends Model
             die("Erro ao listar tipo: " . $error->getMessage());
         }
     }
+
+    public function atualizarAgendamento()
+{
+    // Verifique se o ID do agendamento está definido
+    if (!$this->id_agendamento) {
+        throw new Exception ("ID do agendamento não definido.");
+    }
+
+    // Construa a consulta SQL para atualização
+    $query = "UPDATE agendamentos SET 
+                data_agend = :data_agend,
+                horario = :horario,
+                usuario_id = :usuario_id,
+                pet_id = :pet_id,
+                servicos = :servicos
+              WHERE id_agendamento = :id_agendamento";
+
+    // Prepare a consulta
+    $stmt = $this->db->prepare($query);
+
+    // Associe os valores a serem atualizados
+    $stmt->bindValue(":data_agend", $this->__get("data_agend"));
+    $stmt->bindValue(":horario", $this->__get("horario"));
+    $stmt->bindValue(":usuario_id", $this->__get("usuario_id"));
+    $stmt->bindValue(":pet_id", $this->__get("pet_id"));
+    $stmt->bindValue(":servicos", $this->__get("servicos"));
+    $stmt->bindValue(":id_agendamento", $this->id_agendamento);
+
+    // Execute a consulta
+    $stmt->execute();
+
+    // Verifique se a atualização foi bem-sucedida
+    if ($stmt->rowCount() > 0) {
+        return true; // Atualização bem-sucedida
+    } else {
+        return false; // Falha na atualização
+    }
+}
+
 }
