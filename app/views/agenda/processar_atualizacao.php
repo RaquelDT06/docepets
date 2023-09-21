@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $agenda->__set("servicos", $servicos);
 
     // Tente atualizar o agendamento
-    if ($agenda->atualizarAgendamento()) {
+    if ($agenda->atualizar_agenda()) {
         echo "Agendamento atualizado com sucesso!";
     } else {
         echo "Falha na atualização do agendamento.";

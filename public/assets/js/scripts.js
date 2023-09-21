@@ -24,4 +24,55 @@ $(document).ready(function () {
     });
 });
 
+$(document).ready(function () {
+    $('.confirma-delete-categoria').click(function (e) {
+        e.preventDefault();
+
+        var id = $(this).val();
+        // alert(id)
+
+
+        swal({
+            title: "Deseja continuar?",
+            text: "Uma vez excluído, você não poderá recuperar esta categoria!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = "/categoria_excluir?id="+id;
+                } 
+                // else {
+                //     swal("Your imaginary file is safe!");
+                // }
+            });
+    });
+});
+
+$(document).ready(function () {
+    $('.confirma-delete-arquivo').click(function (e) {
+        e.preventDefault();
+
+        var id = $(this).val();
+        // alert(id)
+
+
+        swal({
+            title: "Deseja continuar?",
+            text: "Uma vez excluído, você não poderá recuperar este arquivo!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = "/arquivo_excluir?id="+id;
+                } 
+                // else {
+                //     swal("Your imaginary file is safe!");
+                // }
+            });
+    });
+});
 

@@ -45,7 +45,8 @@ class Route extends Bootstrap
         $routes['agendamento'] =  array('route' => '/agendamento', 'controller' => 'AgendaController', 'action' => 'cadastrar');
         $routes['salvar_agenda'] = array('route' => '/salvar_agenda', 'controller' => 'AgendaController', 'action' => 'salvar_agenda');
         $routes['editar_agendamento'] = array('route' => '/editar_agendamento', 'controller' => 'AgendaController', 'action' => 'atualizar_agenda');
-
+        $routes['edit_agendamento'] = array('route' => '/edit_agendamento', 'controller' => 'AgendaController', 'action' => 'editar_agenda');
+        $routes['excluir_agendamento'] = array('route' => '/excluir_agendamento', 'controller' => 'AgendaController', 'action' => 'excluir');
         $this->setRoutes($routes);
     }
 }

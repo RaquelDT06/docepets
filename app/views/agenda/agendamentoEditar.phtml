@@ -1,15 +1,15 @@
 <div class="container-fluid px-4">
 
-<?php 
-// dd($this->view->dadosPet);
+  <?php
+  // dd($this->view->dadosPet);
 
-?>
+  ?>
   <?php
   // dd($this->view->status);
-// print_r($_SESSION);
-  
+  // print_r($_SESSION);
 
-use App\Models\AgendaModel;
+
+  use App\Models\AgendaModel;
 
 
   if (isset($this->view->status) && $this->view->status['status'] == "ERROR") {
@@ -35,23 +35,23 @@ use App\Models\AgendaModel;
   ?>
 
 
-  <h1 class="section-title text-success">Agendamento</h1>
+  <h1 class="section-title text-success">Agendamento Editar</h1>
   <ol class="breadcrumb mb-4">
     <li class="breadcrumb-item active">Cuide do seu melhor amigo com apenas um clique | Faça um agendamento</li>
   </ol>
 
-  <form action="/salvar_agenda" method="POST" enctype="multipart/form-data">
+  <form action="/edit_agendamento" method="POST" enctype="multipart/form-data">
     <br>
-    <label for="usuario_id" >Nome do Dono:
-      <b><?php echo $_SESSION['nome'] ?></b>
-      
+    <label for="usuario_id">Nome do Dono:
+      <b><?php echo $this->view->dados['nome_usuario'] ?></b>
+
     </label>
     <br>
     <br>
     <label for="nomepet">Pet</label>
     <select id="nomepet" name="pet_id" class="form-control mb-4 shadow rounded-0" required>
       <option value="" disabled selected>Escolha seu pet</option>
-      <?php foreach ($this->view->dados as $l) { ?>
+      <?php foreach ($this->view->dadosPet as $l) { ?>
         <option value="<?= $l['id_pet_cad'] ?>"><?= $l['nomepet'] ?>
         <?php } ?>
         </option>
@@ -70,8 +70,10 @@ use App\Models\AgendaModel;
 
     <div class="col-12 col-md-6 mb-3">
 
-      <input type="hidden" name="usuario_id" value="<?= $_SESSION['id_usuario'];?>"   />
-      <input class="btn btn-success" type="submit" value="Agendar" />
+      <input type="hidden" name="usuario_id" value="<?= $this->view->dados['usuario_id']; ?>" />
+      <input type="hidden" name="id_agendamento" value="<?= $this->view->dados['id_agendamento']; ?>" />
+
+      <input class="btn btn-success" type="submit" value="atualizar_agenda" />
     </div>
   </form>
 

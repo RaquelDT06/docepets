@@ -115,12 +115,21 @@ class AgendaModel extends Model
                 INNER JOIN cadastro_pet as p ON a.pet_id = p.id_pet_cad";
         return $this->db->query($sql)->fetchAll();
     }
+
+    public function getAgendamentosById($id) {
+        $sql = "SELECT a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
+                a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet
+                FROM agendamentos as a 
+                INNER JOIN usuario as u ON a.usuario_id = u.id_usuario
+                INNER JOIN cadastro_pet as p ON a.pet_id = p.id_pet_cad where id_agendamento = $id";
+        return $this->db->query($sql)->fetch();
+    }
     
 
     public static function listar()
     {
         try {
-            $id_usuario = $_SESSION['id_usuario'];
+            $id_usuario = isset($_SESSION['id_usuario']);
             return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet 
             where usuario_id = $id_usuario");
         } catch (PDOException $error) {
@@ -128,12 +137,38 @@ class AgendaModel extends Model
         }
     }
 
-    public function atualizarAgendamento()
+    public static function listarPetByUsuarioId($agendamentos)
+    {
+        try {            
+            return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet 
+            where usuario_id = $agendamentos");
+        } catch (PDOException $error) {
+            die("Erro ao listar tipo: " . $error->getMessage());
+        }
+    }
+
+    public function deletarAgenda($id)
+	{
+        
+        $query = "DELETE from agendamentos where id_agendamento = :id_agendamento";
+		// $query = "update usuarios set ativo = 0 where id = :id_usuario";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':id_agendamento', $id);
+		$stmt->execute();
+
+		return true;
+	}
+
+    public function atualizar_agenda()
 {
+
+    
     // Verifique se o ID do agendamento está definido
     if (!$this->id_agendamento) {
         throw new Exception ("ID do agendamento não definido.");
     }
+
+   
 
     // Construa a consulta SQL para atualização
     $query = "UPDATE agendamentos SET 
@@ -147,13 +182,14 @@ class AgendaModel extends Model
     // Prepare a consulta
     $stmt = $this->db->prepare($query);
 
+    // dd($this);
     // Associe os valores a serem atualizados
     $stmt->bindValue(":data_agend", $this->__get("data_agend"));
     $stmt->bindValue(":horario", $this->__get("horario"));
     $stmt->bindValue(":usuario_id", $this->__get("usuario_id"));
     $stmt->bindValue(":pet_id", $this->__get("pet_id"));
     $stmt->bindValue(":servicos", $this->__get("servicos"));
-    $stmt->bindValue(":id_agendamento", $this->id_agendamento);
+    $stmt->bindValue(":id_agendamento", $this->__get("id_agendamento"));
 
     // Execute a consulta
     $stmt->execute();
