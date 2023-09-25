@@ -32,7 +32,9 @@ class Route extends Bootstrap
         $routes['usuario_novo'] =  array('route' => '/usuario_novo', 'controller' => 'UsuarioController', 'action' => 'cadastrar');
         $routes['salvar_usuario'] =  array('route' => '/salvar_usuario', 'controller' => 'UsuarioController', 'action' => 'salvar_usuario');
         $routes['cadastrar_usuario'] =  array('route' => '/cadastrar_usuario', 'controller' => 'UsuarioController', 'action' => 'salvar_usuario');
-        
+        $routes['usuario_excluir'] = array('route' => '/usuario_excluir', 'controller' => 'UsuarioController', 'action' => 'excluir');
+        $routes['usuario_editar'] = array('route' => '/usuario_editar', 'controller' => 'UsuarioController', 'action' => 'editar');
+        $routes['usuario_atualizar'] = array('route' => '/usuario_atualizar', 'controller' => 'UsuarioController', 'action' => 'atualizar');
      
         
         

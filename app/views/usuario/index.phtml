@@ -35,8 +35,8 @@
                 <th scope="row"><?= $usuario['sobrenome'] ?></th>
                 <td><?= $usuario['email']; ?></td>
                 <td>
-                    <a class="btn btn-secondary btn-sm" href="#" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
-                    <a class="btn btn-danger btn-sm" href="?excluir=<?= $usuario['id_usuario']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-x-square"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="/usuario_editar?id=<?= $usuario['id_usuario']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-pencil-square"></i></a>
+                    <a class="btn btn-secondary btn-sm" href="/usuario_excluir?id=<?= $usuario['id_usuario']; ?>" data-toggle="tooltip" data-placement="top" title=""><i class="bi bi-x-square"></i></a>
 
                 </td>
 

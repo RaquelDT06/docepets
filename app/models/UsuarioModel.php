@@ -31,61 +31,61 @@ class UsuarioModel extends Model
         $this->$atributo = $valor;
     }
 
-    public function autenticar(){
+    public function autenticar()
+    {
 
         $query = "SELECT id_usuario, nome, sobrenome, email,senha, nivel, ativo FROM usuario 
         WHERE email = :email and senha = :senha and ativo = 1";
 
-    
+
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":email", $this->__get("email"));
         $stmt->bindValue(":senha", $this->__get("senha"));
         $stmt->execute();
-        
-     
 
-        if($stmt->rowCount()){
+
+
+        if ($stmt->rowCount()) {
             $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            
-            if($usuario['id_usuario'] != '' && $usuario['nome']){
+
+            if ($usuario['id_usuario'] != '' && $usuario['nome']) {
                 $this->__set('id_usuario', $usuario['id_usuario']);
                 $this->__set('nome', $usuario['nome']);
                 $this->__set('sobrenome', $usuario['sobrenome']);
                 $this->__set('email', $usuario['email']);
                 $this->__set('ativo', $usuario['ativo']);
-               
             }
 
-            
+
 
             return $this;
         }
 
-        
+
         return $this;
-        
     }
 
-    public function validarCadastro(){
+    public function validarCadastro()
+    {
         $valido = true;
 
-        if(strlen($this->__get("nome")) < 3){
+        if (strlen($this->__get("nome")) < 3) {
             $valido = false;
             echo "Nome menor que 3";
         }
 
-        if(strlen($this->__get("sobrenome")) < 3){
+        if (strlen($this->__get("sobrenome")) < 3) {
             $valido = false;
             echo "sobrenome menor que 3";
         }
 
-        if(strlen($this->__get("email")) < 3){
+        if (strlen($this->__get("email")) < 3) {
             $valido = false;
             echo "email menor que 3";
         }
 
-        if(strlen($this->__get("senha")) < 3){
+        if (strlen($this->__get("senha")) < 3) {
             $valido = false;
             echo "senha menor que 3";
         }
@@ -93,7 +93,8 @@ class UsuarioModel extends Model
         return $valido;
     }
 
-    public function getUsuarioPorEmail(){
+    public function getUsuarioPorEmail()
+    {
         $query = "SELECT nome, sobrenome, email FROM usuario WHERE email = :email";
 
         $stmt = $this->db->prepare($query);
@@ -103,26 +104,66 @@ class UsuarioModel extends Model
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function salvar(){
+    public function getUsuarioPorId()
+    {
+        $query = "select id_usuario, nome, sobrenome, email, senha, tipo, imagem from usuarios where id_usuario = :id_usuario";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+        $stmt->execute();
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function salvar()
+    {
         $query = "INSERT INTO usuario(nome, sobrenome, email, senha, nivel) VALUES
                     (:nome, :sobrenome, :email, :senha, :nivel)";
-        
+
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":nome", $this->__get("nome"));
         $stmt->bindValue(":sobrenome", $this->__get("sobrenome"));
         $stmt->bindValue(":email", $this->__get("email"));
         $stmt->bindValue(":senha", $this->__get("senha"));
         $stmt->bindValue(":nivel", $this->__get("nivel"));
-            
+
         $stmt->execute();
 
         return $this;
     }
 
-    public function getUsuarios() {
+    public function getUsuarios()
+    {
         $sql = "SELECT id_usuario, nome,sobrenome,email,senha  FROM usuario;";
         return $this->db->query($sql)->fetchAll();
     }
 
-    
+    public function deletarUsuario($id)
+	{
+        
+        $query = "DELETE from usuarios where id_usuario = :id_usuario";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':id_usuario', $id);
+		$stmt->execute();
+
+		return true;
+	}
+
+
+    public function atualizar()
+{
+    $query = "UPDATE usuarios SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE id_usuario = :id_usuario";
+
+    $stmt = $this->db->prepare($query);
+
+    $stmt->bindValue(':nome', $this->__get('nome'));
+    $stmt->bindValue(':sobrenome', $this->__get('sobrenome'));
+    $stmt->bindValue(':email', $this->__get('email'));
+    $stmt->bindValue(':senha', $this->__get('senha')); //md5() -> hash 32 caracteres
+    $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
+
+    $stmt->execute();
+
+    return $this;
+}
+
 }
