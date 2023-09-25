@@ -127,15 +127,16 @@ class AgendaModel extends Model
     
 
     public static function listar()
-    {
-        try {
-            $id_usuario = isset($_SESSION['id_usuario']);
-            return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet 
-            where usuario_id = $id_usuario");
-        } catch (PDOException $error) {
-            die("Erro ao listar tipo: " . $error->getMessage());
-        }
+{
+    try {
+        $id_usuario = $_SESSION['id_usuario'];
+        return Query::execute("SELECT id_pet_cad, nomepet FROM cadastro_pet 
+        where usuario_id = $id_usuario");
+    } catch (PDOException $error) {
+        die("Erro ao listar tipo: " . $error->getMessage());
     }
+}
+
 
     public static function listarPetByUsuarioId($agendamentos)
     {

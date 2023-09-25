@@ -43,7 +43,7 @@ use App\Models\AgendaModel;
   <form action="/salvar_agenda" method="POST" enctype="multipart/form-data">
     <br>
     <label for="usuario_id" >Nome do Dono:
-      <b><?php echo $_SESSION['nome'] ?></b>
+      <b><?php echo $_SESSION['nome'] ?> <?php echo $_SESSION['sobrenome'] ?></b>
       
     </label>
     <br>
@@ -51,7 +51,7 @@ use App\Models\AgendaModel;
     <label for="nomepet">Pet</label>
     <select id="nomepet" name="pet_id" class="form-control mb-4 shadow rounded-0" required>
       <option value="" disabled selected>Escolha seu pet</option>
-      <?php foreach ($this->view->dados as $l) { ?>
+      <?php foreach (AgendaModel::listar() as $l) { ?>
         <option value="<?= $l['id_pet_cad'] ?>"><?= $l['nomepet'] ?>
         <?php } ?>
         </option>
