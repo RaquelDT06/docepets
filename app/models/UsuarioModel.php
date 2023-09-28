@@ -140,7 +140,10 @@ class UsuarioModel extends Model
     public function deletarUsuario($id)
 	{
         
-        $query = "DELETE from usuarios where id_usuario = :id_usuario";
+        $query = "DELETE from usuario where id_usuario = :id_usuario";
+
+        echo $query;
+
 		$stmt = $this->db->prepare($query);
 		$stmt->bindValue(':id_usuario', $id);
 		$stmt->execute();

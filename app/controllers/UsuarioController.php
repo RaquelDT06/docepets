@@ -120,6 +120,8 @@ class UsuarioController extends Action
 
         $id = $_GET['id'];
 
+        
+
         $usuario = Container::getModel('Usuario');
         $usuario->deletarUsuario($id);
 
