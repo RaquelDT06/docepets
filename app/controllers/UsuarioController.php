@@ -85,31 +85,19 @@ class UsuarioController extends Action
 
     public function editar()
     {
+
+        // $id = $_GET['id'];
         AuthController::validaAutenticacao();
 
         $usuario = Container::getModel('Usuario');
 
-        $usuario->__set('id_usuario', isset($_POST['id_usuario']) ? $_POST['id_usuario'] : "");
-        $usuario->__set('nome', isset($_POST['nome']) ? $_POST['nome'] : "");
-        $usuario->__set('sobrenome', isset($_POST['sobrenome']) ? $_POST['sobrenome'] : "");
-        $usuario->__set('email', isset($_POST['email']) ? $_POST['email'] : "");
-        $usuario->__set('senha', isset($_POST['senha']) ? $_POST['senha'] : "");
+        //seta o id no atributos id da classe Usuário
+        $usuario->__set('id_usuario', isset($_GET['id_usuario']) ? $_GET['id_usuario'] : "");
 
-        $usuario->atualizar();
+        $usuarios = $usuario->getUsuarioPorId();
+        $this->view->dados = $usuarios;
 
-        //podemos criar um atributo generico no objeto pois estamos herdando de action o view
-        $this->view->status = array(
-            "status" => "SUCCESS",
-            "msg"    => "Categoria atulizada com sucesso"
-        );
-
-
-
-        $this->view->title = "Admin - Categorias";
-
-        // $this->render("agendamento", "template_admin");
         $this->render("usuarioEditar", "template_admin");
-    
     }
 
     
@@ -137,7 +125,7 @@ class UsuarioController extends Action
 
     // Faz a instância do modelo Usuario
     $usuario = Container::getModel('Usuario');
-
+   
     $senha = isset($_POST['senha']) ? $_POST['senha'] : "";
     $senha_atual = isset($_POST['senha_atual']) ? $_POST['senha_atual'] : "";
 
@@ -145,13 +133,13 @@ class UsuarioController extends Action
     $email_atual = isset($_POST['email_atual']) ? $_POST['email_atual'] : "";
 
     // Seta os dados do formulário nos atributos do modelo Usuario
-    $usuario->__set('id', isset($_POST['id']) ? $_POST['id'] : "");
+    $usuario->__set('id_usuario', isset($_POST['id_usuario']) ? $_POST['id_usuario'] : "");
     $usuario->__set('nome', isset($_POST['nome']) ? $_POST['nome'] : "");
     $usuario->__set('sobrenome', isset($_POST['sobrenome']) ? $_POST['sobrenome'] : "");
     $usuario->__set('email', $email); // Use a variável $email
 
-    date_default_timezone_set('America/Cuiaba');
-    $usuario->__set('update_at', date('Y-m-d H:i:s')); // Use 'update_at' em vez de 'updated_at'
+    // date_default_timezone_set('America/Cuiaba');
+    // $usuario->__set('update_at', date('Y-m-d H:i:s')); // Use 'update_at' em vez de 'updated_at'
 
     if ($senha === '') {
         $usuario->__set('senha', $senha_atual);

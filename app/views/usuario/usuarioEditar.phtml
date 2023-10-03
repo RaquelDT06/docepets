@@ -22,7 +22,7 @@
 
 
     <form action="/usuario_atualizar" method="POST" enctype="multipart/form-data">
-
+ 
         <!-- Dados do usuário -->
         <div class="row">
             <div class="col-12 col-md-8 mb-3">
@@ -59,11 +59,15 @@
             <div class="col-12 col-md-6 mb-3">
                 <input type="hidden" name="senha_atual" value="<?= isset($this->view->dados[0]['senha']) ? $this->view->dados[0]['senha'] : ""; ?>" />
                 <input type="hidden" name="email_atual" value="<?= isset($this->view->dados[0]['email']) ? $this->view->dados[0]['email'] : ""; ?>" />
-                <input type="hidden" name="id" value="<?= isset($this->view->dados[0]['id']) ? $this->view->dados[0]['id'] : ""; ?>" />
+                <input type="hidden" name="id_usuario" value="<?= isset($this->view->dados[0]['id_usuario']) ? $this->view->dados[0]['id_usuario'] : ""; ?>" />
                 <input class="btn btn-success" type="submit" value="Atualizar" />
             </div>
         </div>
-    </form>
+      
+          </form>
+
+          
+          
 
 
 

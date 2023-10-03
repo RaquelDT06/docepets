@@ -106,7 +106,7 @@ class UsuarioModel extends Model
 
     public function getUsuarioPorId()
     {
-        $query = "select id_usuario, nome, sobrenome, email, senha, tipo, imagem from usuarios where id_usuario = :id_usuario";
+        $query = "SELECT id_usuario, nome, sobrenome, email, senha from usuario where id_usuario = :id_usuario";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
         $stmt->execute();
@@ -133,7 +133,7 @@ class UsuarioModel extends Model
 
     public function getUsuarios()
     {
-        $sql = "SELECT id_usuario, nome,sobrenome,email,senha  FROM usuario;";
+        $sql = "SELECT id_usuario, nome,sobrenome,email,senha  FROM usuario";
         return $this->db->query($sql)->fetchAll();
     }
 
@@ -154,7 +154,7 @@ class UsuarioModel extends Model
 
     public function atualizar()
 {
-    $query = "UPDATE usuarios SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE id_usuario = :id_usuario";
+    $query = "UPDATE usuario SET nome = :nome, sobrenome = :sobrenome, email = :email, senha = :senha WHERE id_usuario = :id_usuario";
 
     $stmt = $this->db->prepare($query);
 
