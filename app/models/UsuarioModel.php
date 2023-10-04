@@ -54,6 +54,7 @@ class UsuarioModel extends Model
                 $this->__set('nome', $usuario['nome']);
                 $this->__set('sobrenome', $usuario['sobrenome']);
                 $this->__set('email', $usuario['email']);
+                $this->__set('nivel', $usuario['nivel']);
                 $this->__set('ativo', $usuario['ativo']);
             }
 
@@ -95,7 +96,7 @@ class UsuarioModel extends Model
 
     public function getUsuarioPorEmail()
     {
-        $query = "SELECT nome, sobrenome, email FROM usuario WHERE email = :email";
+        $query = "SELECT nome, sobrenome, email, nivel FROM usuario WHERE email = :email";
 
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(":email", $this->__get("email"));
@@ -106,7 +107,7 @@ class UsuarioModel extends Model
 
     public function getUsuarioPorId()
     {
-        $query = "SELECT id_usuario, nome, sobrenome, email, senha from usuario where id_usuario = :id_usuario";
+        $query = "SELECT id_usuario, nome, sobrenome, email, senha, nivel from usuario where id_usuario = :id_usuario";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':id_usuario', $this->__get('id_usuario'));
         $stmt->execute();
@@ -120,6 +121,7 @@ class UsuarioModel extends Model
                     (:nome, :sobrenome, :email, :senha, :nivel)";
 
         $stmt = $this->db->prepare($query);
+
         $stmt->bindValue(":nome", $this->__get("nome"));
         $stmt->bindValue(":sobrenome", $this->__get("sobrenome"));
         $stmt->bindValue(":email", $this->__get("email"));

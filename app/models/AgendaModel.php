@@ -111,8 +111,16 @@ class AgendaModel extends Model
         $sql = "SELECT a.id_agendamento, a.data_agend, a.horario, a.usuario_id, a.pet_id, 
                 a.servicos, u.nome as nome_usuario, u.sobrenome as sobrenome_usuario, p.nomepet
                 FROM agendamentos as a 
-                INNER JOIN usuario as u ON a.usuario_id = u.id_usuario
-                INNER JOIN cadastro_pet as p ON a.pet_id = p.id_pet_cad";
+                LEFT JOIN usuario as u ON a.usuario_id = u.id_usuario
+                LEFT JOIN cadastro_pet as p ON a.pet_id = p.id_pet_cad 
+                where (a.data_agend between current_date() and  current_date()+7) ";
+
+        if ($_SESSION['nivel'] == 1) {
+            $sql .= ' and (not id_usuario is null) ';
+        } else {
+            $sql .= ' and id_usuario= ' . $_SESSION['id_usuario'];
+        };
+
         return $this->db->query($sql)->fetchAll();
     }
 
