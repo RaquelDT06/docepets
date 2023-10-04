@@ -92,7 +92,7 @@ class UsuarioController extends Action
         $usuario = Container::getModel('Usuario');
 
         //seta o id no atributos id da classe Usuário
-        $usuario->__set('id_usuario', isset($_GET['id_usuario']) ? $_GET['id_usuario'] : "");
+        $usuario->__set('id_usuario', isset($_GET['id']) ? $_GET['id'] : "");
 
         $usuarios = $usuario->getUsuarioPorId();
         $this->view->dados = $usuarios;
